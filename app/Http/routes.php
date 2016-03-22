@@ -43,5 +43,9 @@ $api->version('v1', function($api) {
         $api->group(['prefix' => 'news'], function($api) {
             $api->get('all', ['as' => 'api.panel.news.all', 'uses' => 'NewsController@all']);
         });
+
+        $api->group(['prefix' => 'apply'], function($api) {
+            $api->post('create', ['as' => 'api.panel.apply.create', 'uses' => 'ApplyController@create']);
+        });
     });
 });

@@ -5,4 +5,5 @@ Homestead.yaml
 Homestead.json
 .env
 
+/public/upload/apply
 composer.phar
