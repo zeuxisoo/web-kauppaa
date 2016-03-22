@@ -35,6 +35,6 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', function($api) {
     $api->group(['namespace' => 'App\Api\Version1\Controllers', 'prefix' => 'home'], function($api) {
-        $api->get('signup', ['as' => 'api.home.signup', 'uses' => 'HomeController@signup']);
+        $api->post('signup', ['as' => 'api.home.signup', 'uses' => 'HomeController@signup']);
     });
 });
