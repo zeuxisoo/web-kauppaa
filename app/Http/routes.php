@@ -38,4 +38,10 @@ $api->version('v1', function($api) {
         $api->post('signup', ['as' => 'api.home.signup', 'uses' => 'HomeController@signup']);
         $api->post('signin', ['as' => 'api.home.signin', 'uses' => 'HomeController@signin']);
     });
+
+    $api->group(['namespace' => 'App\Api\Version1\Controllers', 'prefix' => 'panel'], function($api) {
+        $api->group(['namespace' => 'Panel', 'prefix' => 'news'], function($api) {
+            $api->get('all', ['as' => 'api.panel.news.all', 'uses' => 'NewsController@all']);
+        });
+    });
 });
