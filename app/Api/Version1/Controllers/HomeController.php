@@ -1,6 +1,7 @@
 <?php
 namespace App\Api\Version1\Controllers;
 
+use Hash;
 use Illuminate\Http\Request;
 use App\Api\Version1\Bases\ApiController;
 use App\Api\Version1\Requests\SignUpRequest;
@@ -16,8 +17,10 @@ class HomeController extends ApiController {
     }
 
     public function signup(SignUpRequest $request) {
-        $input = $request->only('username', 'email', 'password');
-        $user  = $this->userRepository->create($input);
+        $input             = $request->only('username', 'email', 'password');
+        $input['password'] = Hash::make($input['password']);
+
+        $user = $this->userRepository->create($input);
 
         return $this->response->item($user, new UserTransformer);
     }
