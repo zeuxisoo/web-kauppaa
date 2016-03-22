@@ -1,18 +1,11 @@
 <?php
-
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('news', function (Blueprint $table) {
+class CreateNewsTable extends Migration {
+
+    public function up() {
+        Schema::create('news', function(Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('content');
@@ -20,13 +13,8 @@ class CreateNewsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
+    public function down() {
         Schema::drop('news');
     }
+
 }

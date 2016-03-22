@@ -1,17 +1,10 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
-class UsersTableSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+class UsersTableSeeder extends Seeder {
+
+    public function run() {
         (new User)->create([
             'username' => "test",
             'password' => Hash::make("testtest"),
@@ -34,4 +27,5 @@ class UsersTableSeeder extends Seeder
             'email'    => "test2@test2.com"
         ]);
     }
+
 }
