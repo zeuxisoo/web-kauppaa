@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUsernameFieldToUsersTable extends Migration
+class RenameNameFieldToUsernameInUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class AddUsernameFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->string('username', 30)->unique()->default("")->after('name');
+            $table->renameColumn('name', 'username');
+            $table->unique('username');
         });
     }
 
@@ -25,7 +26,8 @@ class AddUsernameFieldToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function($table) {
-            $table->dropColumn('username');
+            $table->renameColumn('username', 'name');
+            $table->dropUnique('users_username_unique');
         });
     }
 }
