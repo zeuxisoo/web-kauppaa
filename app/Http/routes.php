@@ -34,7 +34,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(['prefix' => 'panel', 'middleware' => 'auth'], function() {
         Route::get('index', ['as' => 'web.panel.index', 'uses' => 'PanelController@index']);
-        Route::get('view/{id}', ['as' => 'web.panel.view', 'uses' => 'PanelController@view']);
+        Route::get('show/{id}', ['as' => 'web.panel.show', 'uses' => 'PanelController@show']);
     });
 });
 

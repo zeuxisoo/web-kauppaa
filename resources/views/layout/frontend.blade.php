@@ -21,8 +21,13 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+            @if (Auth::user())
+                <li><a href="{{ route('web.panel.index') }}">Panel</a></li>
+            @else
                 <li><a href="{{ route('web.home.index') }}">Home</a></li>
+            @endif
             </ul>
+
             <ul class="nav navbar-nav pull-right">
                 @if (Auth::user())
                     <li>

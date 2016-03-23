@@ -14,4 +14,8 @@ class ApplyRepository extends AppRepository {
         return $this->apply->whereUserId($user_id)->orderBy('created_at', 'desc')->get();
     }
 
+    public function findMyApplyById($user_id, $apply_id) {
+        return $this->apply->whereUserId($user_id)->find($apply_id);
+    }
+
 }

@@ -2,6 +2,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ApplyPhoto;
 
 class Apply extends Model {
 
@@ -11,5 +12,9 @@ class Apply extends Model {
         'property_ownership_1', 'property_ownership_2', 'property_ownership_3', 'property_ownership_4', 'property_ownership_5',
         'loan_type', 'apply_amount', 'loan_period', 'payroll', 'mpf', 'once_bankruptcy', 'status',
     ];
+
+    public function photos() {
+        return $this->hasMany(ApplyPhoto::class);
+    }
 
 }

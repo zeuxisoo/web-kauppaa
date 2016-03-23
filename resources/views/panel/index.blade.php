@@ -31,7 +31,7 @@
                             <td>{{ $apply->created_at->diffForHumans() }}</td>
                             <td>{{ status($apply->status) }}</td>
                             <td>
-                                <a href="{{ route('web.panel.view', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
+                                <a href="{{ route('web.panel.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
                             </td>
                         </tr>
                     </tbody>
