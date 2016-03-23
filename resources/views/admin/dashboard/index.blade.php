@@ -1,4 +1,4 @@
-@extends('layout.frontend')
+@extends('layout.backend')
 
 @section('container')
     <div id="index">
@@ -32,7 +32,8 @@
                                 <td>{{ $apply->created_at->diffForHumans() }}</td>
                                 <td>{{ status($apply->status) }}</td>
                                 <td>
-                                    <a href="{{ route('web.panel.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
+                                    <a href="{{ route('web.admin.dashboard.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
+                                    <a href="{{ route('web.admin.dashboard.edit', ['id' => $apply->id]) }}" class="btn btn-xs btn-info">Edit</a>
                                 </td>
                             </tr>
                         </tbody>

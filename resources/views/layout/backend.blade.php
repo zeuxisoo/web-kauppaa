@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Kauppaa</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link href="{{ asset('assets/css/frontend.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/backend.css') }}" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="navbar navbar-static-top navbar-default" role="navigation">
+<div class="navbar navbar-static-top navbar-default navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,15 +18,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand">Kauppaa</a>
+            <a class="navbar-brand">Kauppaa+</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-            @if (Auth::user())
-                <li><a href="{{ route('web.panel.index') }}">Panel</a></li>
-            @else
-                <li><a href="{{ route('web.home.index') }}">Home</a></li>
-            @endif
+                @if (Auth::user())
+                    <li><a href="{{ route('web.admin.dashboard.index') }}">Dashboard</a></li>
+                @else
+                    <li><a href="{{ route('web.admin.index') }}">Home</a></li>
+                @endif
             </ul>
 
             <ul class="nav navbar-nav pull-right">
@@ -37,8 +37,6 @@
                         </a>
                     </li>
                     <li><a href="{{ route('web.home.signout') }}">Sign out</a></li>
-                @else
-                    <li><a href="{{ route('web.home.signin') }}">Sign in</a></li>
                 @endif
             </ul>
         </div>

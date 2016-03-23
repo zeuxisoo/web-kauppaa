@@ -1,14 +1,32 @@
-@extends('layout.frontend')
+@extends('layout.backend')
 
 @section('container')
     <div id="index">
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-3"><strong>Status</strong></div>
-                        <div class="col-xs-9 text-right">{{ status($apply->status) }}</div>
-                    </div>
+                    <form class="form-horizontal" method="post" action="{{ route('web.admin.dashboard.update', ['id' => $apply->id]) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="form-group">
+                            <label for="status" class="col-xs-3 col-md-2 control-label">Status</label>
+                            <div class="col-xs-9 col-md-10">
+                                <select name="status" class="form-control">
+                                    @foreach(range(1, 4) as $key)
+                                        @if ($key == $apply->status)
+                                            <option value="{{ $key }}" selected="selected">{{ ucfirst(status($key)) }}</option>
+                                        @else
+                                            <option value="{{ $key }}">{{ ucfirst(status($key)) }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group clear-all-padding">
+                            <div class="col-xs-offset-3 col-xs-9 col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn btn-default">Update</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -92,22 +110,6 @@
                         <div class="col-xs-4 col-sm-3 text-right">{{ yesOrNo($apply->once_bankruptcy) }}</div>
                         <div class="col-xs-6 col-sm-3">&nbsp;</div>
                         <div class="col-xs-6 col-sm-3 text-right">&nbsp;</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Others</div>
-                <div class="panel-body">
-                    <div class="row">
-                        @foreach($photos as $photo)
-                            <div class="col-xs-12 col-sm-4">
-                                <div class="alert alert-info text-center">{{ $photo->category }}</div>
-                                <a href="{{ asset('/upload/apply/'.$photo->photo) }}" target="_blank" class="thumbnail">
-                                    <img src="{{ asset('/upload/apply/'.$photo->photo) }}">
-                                </a>
-                            </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
