@@ -16,13 +16,22 @@ Steup database
 Seed database
 
     php artisan db:seed
-    
+
 Seeded user
 
 	test / testtest
 	test1 / testtest
 	test2 / testtest
-	
+
 Seeded admin
 
 	admin / 12345678
+
+Create environment
+
+    cp .env.example .env
+
+Generate key
+
+    php artisan key:generate
+    php artisan jwt:generate
