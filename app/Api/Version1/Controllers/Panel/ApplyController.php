@@ -22,7 +22,9 @@ class ApplyController extends ApiController {
     }
 
     public function createStep1(ApplyStep1Request $request) {
-        $input = $request->all();
+        $input = array_merge($request->all(), [
+            'user_id' => $this->auth->user()->id
+        ]);
 
         if (array_key_exists('status', $input) === false) {
             $input['status'] = 1;
@@ -41,7 +43,8 @@ class ApplyController extends ApiController {
 
         $image = Image::make($file)->save($path);
         $input = array_merge($request->only('apply_id', 'category'), [
-            'photo' => $image->basename
+            'user_id' => $this->auth->user()->id,
+            'photo'   => $image->basename
         ]);
 
         $apply_photo = $this->applyPhotoRepository->create($input);

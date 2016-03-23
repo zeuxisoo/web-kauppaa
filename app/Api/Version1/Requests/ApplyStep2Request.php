@@ -20,7 +20,8 @@ class ApplyStep2Request extends ApiRequest {
 
     public function messages() {
         return [
-            'apply_id.required' => 'You must provide the apply id before submit photo'
+            'apply_id.required' => 'You must provide the apply id before submit photo',
+            'file.required'     => 'You must upload all related files'
         ];
     }
 

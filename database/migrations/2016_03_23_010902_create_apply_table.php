@@ -7,24 +7,25 @@ class CreateApplyTable extends Migration {
     public function up() {
         Schema::create('applies', function(Blueprint $table) {
             $table->increments('id');
+            $table->mediumInteger('user_id')->unsigned()->index();
             $table->string('chinese_name', 50);
             $table->string('english_name', 50);
             $table->string('hkid', 10);
-            $table->tinyInteger('gender')->default(1);
-            $table->tinyInteger('occupation')->default(1);
-            $table->mediumInteger('monthly_income');
-            $table->tinyInteger('property_ownership_1')->nullable()->default(0);
-            $table->tinyInteger('property_ownership_2')->nullable()->default(0);
-            $table->tinyInteger('property_ownership_3')->nullable()->default(0);
-            $table->tinyInteger('property_ownership_4')->nullable()->default(0);
-            $table->tinyInteger('property_ownership_5')->nullable()->default(0);
-            $table->tinyInteger('loan_type')->default(1);
-            $table->mediumInteger('apply_amount');
-            $table->tinyInteger('loan_period');
-            $table->tinyInteger('payroll')->default(1);
-            $table->tinyInteger('mpf')->default(1);
-            $table->tinyInteger('once_bankruptcy')->default(2);
-            $table->tinyInteger('status')->default(1); // 1: waiting, 2: reviewing, 3: approved, 4: completed
+            $table->tinyInteger('gender')->unsigned()->default(1);
+            $table->tinyInteger('occupation')->unsigned()->default(1);
+            $table->mediumInteger('monthly_income')->unsigned();
+            $table->boolean('property_ownership_1')->nullable()->default(false);
+            $table->boolean('property_ownership_2')->nullable()->default(false);
+            $table->boolean('property_ownership_3')->nullable()->default(false);
+            $table->boolean('property_ownership_4')->nullable()->default(false);
+            $table->boolean('property_ownership_5')->nullable()->default(false);
+            $table->tinyInteger('loan_type')->unsigned()->default(1);
+            $table->mediumInteger('apply_amount')->unsigned();
+            $table->tinyInteger('loan_period')->unsigned();
+            $table->tinyInteger('payroll')->unsigned()->default(1);
+            $table->tinyInteger('mpf')->unsigned()->default(1);
+            $table->tinyInteger('once_bankruptcy')->unsigned()->default(2);
+            $table->tinyInteger('status')->unsigned()->default(1); // 1: waiting, 2: reviewing, 3: approved, 4: completed
             $table->timestamps();
         });
     }
