@@ -1,32 +1,52 @@
 <?php
 namespace App\Api\Version1\Controllers\Panel;
 
+use Image;
 use Illuminate\Http\Request;
 use App\Api\Version1\Bases\ApiController;
-use App\Api\Version1\Requests\ApplyRequest;
+use App\Api\Version1\Requests\ApplyStep1Request;
+use App\Api\Version1\Requests\ApplyStep2Request;
 use App\Api\Version1\Repositories\ApplyRepository;
+use App\Api\Version1\Repositories\ApplyPhotoRepository;
 use App\Api\Version1\Transformers\ApplyTransformer;
+use App\Api\Version1\Transformers\ApplyPhotoTransformer;
 
 class ApplyController extends ApiController {
 
     protected $applyRepository;
+    protected $applyPhotoRepository;
 
-    public function __construct(ApplyRepository $applyRepository) {
-        $this->applyRepository = $applyRepository;
+    public function __construct(ApplyRepository $applyRepository, ApplyPhotoRepository $applyPhotoRepository) {
+        $this->applyRepository      = $applyRepository;
+        $this->applyPhotoRepository = $applyPhotoRepository;
     }
 
-    public function create(ApplyRequest $request) {
-        if ($request->hasFile('file') === true) {
-            $file = $request->file('file');
+    public function createStep1(ApplyStep1Request $request) {
+        $input = $request->all();
 
-            if ($file->isValid() === true) {
-                $file->move(public_path('upload/apply'), time().'.'.$file->getClientOriginalExtension());
-            }
+        if (array_key_exists('status', $input) === false) {
+            $input['status'] = 1;
         }
 
-        return $this->response->array([
-            'chinese_name' => $request->input('chinese_name')
+        $apply = $this->applyRepository->create($input);
+
+        return $this->response->item($apply, new ApplyTransformer);
+    }
+
+    public function createStep2(ApplyStep2Request $request) {
+        $file = $request->file('file');
+        $name = date("YmdHis").'_'.str_random(10);
+        $ext  = $file->getClientOriginalExtension();
+        $path = sprintf("%s/%s", public_path('upload/apply'), $name.'.'.$ext);
+
+        $image = Image::make($file)->save($path);
+        $input = array_merge($request->only('apply_id', 'category'), [
+            'photo' => $image->basename
         ]);
+
+        $apply_photo = $this->applyPhotoRepository->create($input);
+
+        return $this->response->item($apply_photo, new ApplyPhotoTransformer);
     }
 
 }

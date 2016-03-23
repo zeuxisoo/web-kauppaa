@@ -10,7 +10,8 @@
         "dingo/api": "1.0.x@dev",
         "tymon/jwt-auth": "0.5.*",
         "doctrine/dbal": "^2.5",
-        "barryvdh/laravel-cors": "^0.8.0"
+        "barryvdh/laravel-cors": "^0.8.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -45,7 +45,8 @@ $api->version('v1', function($api) {
         });
 
         $api->group(['prefix' => 'apply'], function($api) {
-            $api->post('create', ['as' => 'api.panel.apply.create', 'uses' => 'ApplyController@create']);
+            $api->post('create/step1', ['as' => 'api.panel.apply.createStep1', 'uses' => 'ApplyController@createStep1']);
+            $api->post('create/step2', ['as' => 'api.panel.apply.createStep2', 'uses' => 'ApplyController@createStep2']);
         });
     });
 });

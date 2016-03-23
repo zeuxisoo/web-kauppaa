@@ -10,4 +10,8 @@ class ApplyRepository extends ApiRepository {
         $this->apply = $apply;
     }
 
+    public function create($input) {
+        return (new $this->apply)->create($input);
+    }
+
 }
