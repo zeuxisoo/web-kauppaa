@@ -14,6 +14,7 @@
                         <th>Monthly Income</th>
                         <th>Apply amount</th>
                         <th>Created at</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,6 +29,7 @@
                             <td>{{ $apply->monthly_income }}</td>
                             <td>{{ $apply->apply_amount }}</td>
                             <td>{{ $apply->created_at->diffForHumans() }}</td>
+                            <td>{{ status($apply->status) }}</td>
                             <td>
                                 <a href="{{ route('web.panel.view', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
                             </td>
