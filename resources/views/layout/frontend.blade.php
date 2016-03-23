@@ -30,7 +30,7 @@
                             <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                         </a>
                     </li>
-                    <li><a href="{{ route('web.home.signout') }}">Sign out</li>
+                    <li><a href="{{ route('web.home.signout') }}">Sign out</a></li>
                 @else
                     <li><a href="{{ route('web.home.signin') }}">Sign in</a></li>
                 @endif
