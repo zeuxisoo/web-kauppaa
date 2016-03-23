@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,14 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/', ['as' => 'web.home.index', 'uses' => 'HomeController@index']);
+    Route::get('signin', ['as' => 'web.home.signin', 'uses' => 'HomeController@signin']);
+    Route::get('signout', ['as' => 'web.home.signout', 'uses' => 'HomeController@signout']);
+    Route::post('signin', ['as' => 'web.home.signin', 'uses' => 'HomeController@signin']);
+
+    Route::group(['prefix' => 'panel', 'middleware' => 'auth'], function() {
+        Route::get('index', ['as' => 'web.panel.index', 'uses' => 'PanelController@index']);
+    });
 });
 
 
