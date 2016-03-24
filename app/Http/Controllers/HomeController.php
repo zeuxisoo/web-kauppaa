@@ -27,6 +27,10 @@ class HomeController extends Controller {
         }
     }
 
+    public function signup(Request $request) {
+        return view('home/signup');
+    }
+
     public function signout() {
         Auth::logout();
 
