@@ -12,7 +12,7 @@
             <hr />
             <div class="row">
                 <div class="col-md-12">
-                    @if (empty($applies) === true)
+                    @if ($applies->isEmpty() === true)
                         <div class="alert alert-info" role="alert">No any submitted application</div>
                     @else
                         <div class="table-responsive">

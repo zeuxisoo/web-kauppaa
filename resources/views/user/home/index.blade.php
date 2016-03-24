@@ -8,7 +8,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Applications</div>
                         <div class="panel-body">
-                            @if (empty($applies) === true)
+                            @if ($applies->isEmpty() === true)
                                 <div class="alert alert-info" role="alert">No any submitted application</div>
                             @endif
 
