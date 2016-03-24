@@ -4,10 +4,13 @@
 <meta charset='utf-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Brand</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link href="{{ asset('assets/css/frontend.css') }}" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+@if (config('app.debug') === true)
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+@else
+    <link href="{{ elixir('assets/css/app.css') }}" rel="stylesheet">
+    <script src="{{ elixir('assets/js/app.js') }}"></script>
+@endif
 </head>
 <body>
 <div class="navbar navbar-static-top navbar-default" role="navigation">

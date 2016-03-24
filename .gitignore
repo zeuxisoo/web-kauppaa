@@ -6,4 +6,6 @@ Homestead.json
 .env
 
 /public/upload/apply
+/public/assets
+/public/build
 composer.phar
