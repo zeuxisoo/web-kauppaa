@@ -8,6 +8,10 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Applications</div>
                         <div class="panel-body">
+                            @if (empty($applies) === true)
+                                <div class="alert alert-info" role="alert">No any submitted application</div>
+                            @endif
+
                             @foreach($applies as $apply)
                                 <div class="row application">
                                     <div class="col-md-10">
