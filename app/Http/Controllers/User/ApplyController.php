@@ -17,6 +17,10 @@ class ApplyController extends Controller {
         return view('user/apply/index', compact('applies'));
     }
 
+    public function create() {
+        return view('user/apply/create');
+    }
+
     public function show($id) {
         $apply  = $this->applyRepository->findMyApplyById($this->user->id, $id);
         $photos = $apply->photos;

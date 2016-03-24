@@ -5,6 +5,7 @@
     "gulp": "^3.8.8"
   },
   "dependencies": {
+    "bootstrap-filestyle": "github:markusslima/bootstrap-filestyle",
     "bootstrap-sass": "^3.0.0",
     "jquery": "^2.2.2",
     "laravel-elixir": "^4.0.0"

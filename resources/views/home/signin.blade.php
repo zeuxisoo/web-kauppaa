@@ -1,7 +1,7 @@
 @extends('layout.frontend')
 
 @section('container')
-    <div id="signin">
+    <div id="home-signin" class="home home-signin">
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-heading">Sign in</div>

@@ -1,7 +1,7 @@
 @extends('layout.frontend')
 
 @section('container')
-    <div id="user user-apply user-apply-show">
+    <div id="user-apply-show" class="user user-apply user-apply-show">
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-body">

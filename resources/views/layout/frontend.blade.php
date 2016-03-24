@@ -14,40 +14,43 @@
 </head>
 <body>
 <div class="navbar navbar-static-top navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">Brand</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-            @if (Auth::user())
-                @role('user')
-                    <li><a href="{{ route('web.user.home.index') }}">Home</a></li>
-                    <li><a href="{{ route('web.user.apply.index') }}">Apply</a></li>
-                @endrole
-            @else
-                <li><a href="{{ route('web.home.index') }}">Home</a></li>
-            @endif
-            </ul>
-
-            <ul class="nav navbar-nav pull-right">
+    <div class="navbar navbar-default navbar-fixed-top navbar-app" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Brand</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
                 @if (Auth::user())
-                    <li>
-                        <a href="javascript:void(0)">
-                            <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
-                        </a>
-                    </li>
-                    <li><a href="{{ route('web.home.signout') }}">Sign out</a></li>
+                    @role('user')
+                        <li><a href="{{ route('web.user.home.index') }}">Home</a></li>
+                        <li><a href="{{ route('web.user.apply.index') }}">Apply</a></li>
+                    @endrole
                 @else
-                    <li><a href="{{ route('web.home.signin') }}">Sign in</a></li>
-                    <li><a href="{{ route('web.home.signup') }}">Sign up</a></li>
+                    <li><a href="{{ route('web.home.index') }}">Home</a></li>
                 @endif
-            </ul>
+                </ul>
+
+                <ul class="nav navbar-nav pull-right">
+                    @if (Auth::user())
+                        <li>
+                            <a href="javascript:void(0)">
+                                <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
+                            </a>
+                        </li>
+                        <li><a href="{{ route('web.home.signout') }}">Sign out</a></li>
+                    @else
+                        <li><a href="{{ route('web.home.signin') }}">Sign in</a></li>
+                        <li><a href="{{ route('web.home.signup') }}">Sign up</a></li>
+                    @endif
+                </ul>
+            </div>
         </div>
     </div>
 </div>

@@ -39,6 +39,7 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::group(['prefix' => 'apply'], function() {
             Route::get('index', ['as' => 'web.user.apply.index', 'uses' => 'ApplyController@index']);
+            Route::get('create', ['as' => 'web.user.apply.create', 'uses' => 'ApplyController@create']);
             Route::get('show/{id}', ['as' => 'web.user.apply.show', 'uses' => 'ApplyController@show']);
         });
     });
