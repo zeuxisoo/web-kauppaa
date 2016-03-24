@@ -29,7 +29,7 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', ['as' => 'web.home.index', 'uses' => 'HomeController@index']);
     Route::get('signin', ['as' => 'web.home.signin', 'uses' => 'HomeController@signin']);
-    Route::post('signin', ['as' => 'web.home.signin', 'uses' => 'HomeController@signin']);
+    Route::post('signin', ['as' => 'web.home.signin', 'uses' => 'HomeController@doSignin']);
     Route::get('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@signup']);
     Route::post('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@doSignup']);
     Route::get('signout', ['as' => 'web.home.signout', 'uses' => 'HomeController@signout']);

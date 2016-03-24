@@ -18,20 +18,20 @@ class HomeController extends Controller {
         return view('home/index');
     }
 
-    public function signin(Request $request) {
-        if ($request->isMethod('post') === true) {
-            $input = $request->only('username', 'password');
-            $remember = $request->only('remember');
+    public function signin() {
+        return view('home/signin');
+    }
 
-            if (Auth::attempt($input, $remember) == true) {
-                return redirect(route('web.panel.index'));
-            }else{
-                return redirect()->back()->withInput()->withErrors([
-                    'email' => 'These credentials do not match our records.',
-                ]);
-            }
+    public function doSignin(Request $request) {
+        $input = $request->only('username', 'password');
+        $remember = $request->only('remember');
+
+        if (Auth::attempt($input, $remember) == true) {
+            return redirect(route('web.panel.index'));
         }else{
-            return view('home/signin');
+            return redirect()->back()->withInput()->withErrors([
+                'email' => 'These credentials do not match our records.',
+            ]);
         }
     }
 
