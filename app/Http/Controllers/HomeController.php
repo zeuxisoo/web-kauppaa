@@ -31,7 +31,7 @@ class HomeController extends Controller {
         $remember = $request->only('remember');
 
         if (Auth::attempt($input, $remember) == true) {
-            return redirect(route('web.panel.index'));
+            return redirect(route('web.user.home.index'));
         }else{
             return redirect()->back()->withInput()->withErrors([
                 'email' => 'These credentials do not match our records.',
@@ -50,6 +50,7 @@ class HomeController extends Controller {
 
         return redirect(route('web.home.index'))->withNotice('Account Created');
     }
+
 
     public function signout() {
         Auth::logout();

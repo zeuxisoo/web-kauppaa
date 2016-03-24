@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class CheckForRole {
+class CheckForAdminRole {
     protected $auth;
 
     public function __construct(Guard $auth) {

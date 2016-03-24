@@ -23,7 +23,9 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
             @if (Auth::user())
-                <li><a href="{{ route('web.panel.index') }}">Panel</a></li>
+                @role('user')
+                    <li><a href="{{ route('web.user.home.index') }}">Home</a></li>
+                @endrole
             @else
                 <li><a href="{{ route('web.home.index') }}">Home</a></li>
             @endif

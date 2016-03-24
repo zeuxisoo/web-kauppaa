@@ -1,27 +1,21 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Repositories\ApplyRepository;
 
-class PanelController extends Controller {
+class ApplyController extends Controller {
 
     public function __construct(ApplyRepository $applyRepository) {
         $this->user            = auth()->user();
         $this->applyRepository = $applyRepository;
     }
 
-    public function index() {
-        $applies = $this->applyRepository->findMyApplies($this->user->id);
-
-        return view('panel/index', compact('applies'));
-    }
-
     public function show($id) {
         $apply  = $this->applyRepository->findMyApplyById($this->user->id, $id);
         $photos = $apply->photos;
 
-        return view('panel/show', compact('apply', 'photos'));
+        return view('user/home/show', compact('apply', 'photos'));
     }
 
 }
