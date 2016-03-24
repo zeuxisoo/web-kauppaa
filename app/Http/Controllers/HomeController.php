@@ -5,17 +5,21 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\SignUpRequest;
 use App\Repositories\UserRepository;
+use App\Repositories\NewsRepository;
 
 class HomeController extends Controller {
 
     protected $userRepository;
 
-    public function __construct(UserRepository $userRepository) {
+    public function __construct(UserRepository $userRepository, NewsRepository $newsRepository) {
         $this->userRepository = $userRepository;
+        $this->newsRepository = $newsRepository;
     }
 
     public function index() {
-        return view('home/index');
+        $news = $this->newsRepository->findAll();
+
+        return view('home/index', compact('news'));
     }
 
     public function signin() {
