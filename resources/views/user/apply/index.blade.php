@@ -12,7 +12,7 @@
             <hr />
             <div class="row">
                 <div class="col-md-12">
-                    @if (empty($news) === true)
+                    @if (empty($applies) === true)
                         <div class="alert alert-info" role="alert">No any submitted application</div>
                     @else
                         <div class="table-responsive">
@@ -44,7 +44,7 @@
                                             <td>{{ $apply->created_at->diffForHumans() }}</td>
                                             <td>{{ status($apply->status) }}</td>
                                             <td>
-                                                <a href="{{ route('web.panel.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
+                                                <a href="{{ route('web.user.apply.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
                                             </td>
                                         </tr>
                                     </tbody>

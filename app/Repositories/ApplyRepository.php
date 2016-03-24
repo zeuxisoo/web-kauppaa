@@ -10,6 +10,10 @@ class ApplyRepository extends AppRepository {
         $this->apply = $apply;
     }
 
+    public function create($input) {
+        return (new $this->apply)->create($input);
+    }
+
     public function findMyApplies($user_id) {
         return $this->apply->whereUserId($user_id)->orderBy('created_at', 'desc')->get();
     }
