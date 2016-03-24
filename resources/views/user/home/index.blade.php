@@ -8,33 +8,21 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Applications</div>
                         <div class="panel-body">
-                            <div class="row application">
-                                <div class="col-md-10">
-                                    <div class="title">Name</div>
-                                    <div class="status">
-                                        <small class="text-muted">
-                                            submitted at 2010.12.12, status is <strong>waitting</strong>
-                                        </small>
+                            @foreach($applies as $apply)
+                                <div class="row application">
+                                    <div class="col-md-10">
+                                        <div class="title">Your name: {{ $apply->chinese_name }}</div>
+                                        <div class="status">
+                                            <small class="text-muted">
+                                                submitted at {{ $apply->created_at }}, status is <strong>{{ status($apply->status) }}</strong>
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 text-center">
+                                        <a href="{{ route('web.user.apply.show', ['id' => $apply->id]) }}" class="btn btn-md btn-default">View</a>
                                     </div>
                                 </div>
-                                <div class="col-md-2 text-center">
-                                    <a href="" class="btn btn-md btn-default">View</a>
-                                </div>
-                            </div>
-
-                            <div class="row application">
-                                <div class="col-md-10">
-                                    <div class="title">Name</div>
-                                    <div class="status">
-                                        <small class="text-muted">
-                                            submitted at 2010.12.12, status is <strong>waitting</strong>
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 text-center">
-                                    <a href="" class="btn btn-md btn-default">View</a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="panel panel-default">

@@ -7,6 +7,9 @@ use App\Repositories\NewsRepository;
 
 class HomeController extends Controller {
 
+    private $applyRepository;
+    private $newsRepository;
+
     public function __construct(ApplyRepository $applyRepository, NewsRepository $newsRepository) {
         $this->user            = auth()->user();
         $this->applyRepository = $applyRepository;
@@ -14,9 +17,10 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        $news = $this->newsRepository->findAll();
+        $applies = $this->applyRepository->findMyApplies($this->user->id);
+        $news    = $this->newsRepository->findAll();
 
-        return view('user/home/index', compact('news'));
+        return view('user/home/index', compact('applies', 'news'));
     }
 
 }
