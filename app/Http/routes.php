@@ -38,6 +38,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('home', ['as' => 'web.user.home.index', 'uses' => 'HomeController@index']);
 
         Route::group(['prefix' => 'apply'], function() {
+            Route::get('index', ['as' => 'web.user.apply.index', 'uses' => 'ApplyController@index']);
             Route::get('show/{id}', ['as' => 'web.user.apply.show', 'uses' => 'ApplyController@show']);
         });
     });

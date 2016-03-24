@@ -11,11 +11,17 @@ class ApplyController extends Controller {
         $this->applyRepository = $applyRepository;
     }
 
+    public function index() {
+        $applies = $this->applyRepository->findMyApplies($this->user->id);
+
+        return view('user/apply/index', compact('applies'));
+    }
+
     public function show($id) {
         $apply  = $this->applyRepository->findMyApplyById($this->user->id, $id);
         $photos = $apply->photos;
 
-        return view('user/home/show', compact('apply', 'photos'));
+        return view('user/apply/show', compact('apply', 'photos'));
     }
 
 }

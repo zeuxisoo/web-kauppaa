@@ -25,6 +25,7 @@
             @if (Auth::user())
                 @role('user')
                     <li><a href="{{ route('web.user.home.index') }}">Home</a></li>
+                    <li><a href="{{ route('web.user.apply.index') }}">Apply</a></li>
                 @endrole
             @else
                 <li><a href="{{ route('web.home.index') }}">Home</a></li>

@@ -1,48 +1,67 @@
 @extends('layout.frontend')
 
 @section('container')
-    <div id="index">
+    <div id="user user-home user-home-index">
         <div class="container">
-            @if (empty($news) === true)
-                <div class="alert alert-info" role="alert">No any submitted application</div>
-            @else
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Chinese name</th>
-                                <th>English name</th>
-                                <th>Gender</th>
-                                <th>Occupation</th>
-                                <th>Monthly Income</th>
-                                <th>Apply amount</th>
-                                <th>Created at</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        @foreach($applies as $apply)
-                            <tbody>
-                                <tr>
-                                    <td>{{ $apply->id }}</td>
-                                    <td>{{ $apply->chinese_name }}</td>
-                                    <td>{{ $apply->english_name }}</td>
-                                    <td>{{ $apply->gender }}</td>
-                                    <td>{{ $apply->occupation }}</td>
-                                    <td>{{ $apply->monthly_income }}</td>
-                                    <td>{{ $apply->apply_amount }}</td>
-                                    <td>{{ $apply->created_at->diffForHumans() }}</td>
-                                    <td>{{ status($apply->status) }}</td>
-                                    <td>
-                                        <a href="{{ route('web.panel.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        @endforeach
-                    </table>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Applications</div>
+                        <div class="panel-body">
+                            <div class="row application">
+                                <div class="col-md-10">
+                                    <div class="title">Name</div>
+                                    <div class="status">
+                                        <small class="text-muted">
+                                            submitted at 2010.12.12, status is <strong>waitting</strong>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <a href="" class="btn btn-md btn-default">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">News</div>
+                        <div class="panel-body">
+                            @foreach($news as $row)
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{{ $row->title }}</h4>
+                                        <p>{{ $row->content }}</p>
+                                        <small class="text-muted">Post at <time>{{ $row->created_at }}</time></small>
+                                    </div>
+                                </div>
+                                <hr>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    {!! with(new App\Presenters\AlignedPagerPresenter($news))->render() !!}
                 </div>
-            @endif
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">Hotline</div>
+                        <div class="panel-body text-center">
+                            3456-8888
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">Apply count</div>
+                        <div class="panel-body text-center">
+                            67,890
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">Apply Amount</div>
+                        <div class="panel-body text-center">
+                            $6,333,567,890
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @stop
