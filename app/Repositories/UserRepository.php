@@ -10,8 +10,8 @@ class UserRepository extends AppRepository {
         $this->user = $user;
     }
 
-    public function create($input) {
-        return (new User)->create($input);
+    public function create($input, $role) {
+        return (new User)->create($input)->attachRole($role);
     }
 
 }

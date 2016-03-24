@@ -6,29 +6,22 @@ use App\Models\Role;
 class UsersTableSeeder extends Seeder {
 
     public function run() {
-        $user_role  = Role::whereName('user')->first();
-        $admin_role = Role::whereName('administrator')->first();
+        $user_role      = Role::whereName('user')->first();
+        $financier_role = Role::whereName('financier')->first();
+        $admin_role     = Role::whereName('admin')->first();
 
         (new User)->create([
-            'username' => "test",
-            'password' => Hash::make("testtest"),
-            'email'    => "test@test.com"
+            'username' => "user",
+            'password' => Hash::make("12345678"),
+            'email'    => "user@user.com"
         ])->attachRole($user_role);
 
         sleep(1);
 
         (new User)->create([
-            'username' => "test1",
-            'password' => Hash::make("testtest"),
-            'email'    => "test1@test1.com"
-        ])->attachRole($user_role);
-
-        sleep(1);
-
-        (new User)->create([
-            'username' => "test2",
-            'password' => Hash::make("testtest"),
-            'email'    => "test2@test2.com"
+            'username' => "financier",
+            'password' => Hash::make("12345678"),
+            'email'    => "financier@financier.com"
         ])->attachRole($user_role);
 
         sleep(1);

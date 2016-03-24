@@ -44,7 +44,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/', ['as' => 'web.admin.index', 'uses' => 'HomeController@index']);
         Route::post('signin', ['as' => 'web.admin.signin', 'uses' => 'HomeController@signin']);
 
-        Route::group(['prefix' => 'dashboard', 'middleware' => 'role.custom:administrator'], function() {
+        Route::group(['prefix' => 'dashboard', 'middleware' => 'role.custom:admin'], function() {
             Route::get('/', ['as' => 'web.admin.dashboard.index', 'uses' => 'DashboardController@index']);
             Route::get('show/{id}', ['as' => 'web.admin.dashboard.show', 'uses' => 'DashboardController@show']);
             Route::get('edit/{id}', ['as' => 'web.admin.dashboard.edit', 'uses' => 'DashboardController@edit']);

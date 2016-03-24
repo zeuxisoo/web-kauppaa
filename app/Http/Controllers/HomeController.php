@@ -41,7 +41,8 @@ class HomeController extends Controller {
 
     public function doSignup(SignUpRequest $request) {
         $input = $request->only('username', 'password', 'email');
-        $user  = $this->userRepository->create($input);
+        $role  = $request->input('role');
+        $user  = $this->userRepository->create($input, strtolower($role));
 
         return redirect(route('web.home.index'))->withNotice('Account Created');
     }

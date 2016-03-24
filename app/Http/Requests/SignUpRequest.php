@@ -14,6 +14,7 @@ class SignUpRequest extends Request {
             'username' => 'required|min:3|unique:users,username',
             'password' => 'required|min:8',
             'email'    => 'required|email|unique:users,email',
+            'role'     => 'required|exists:roles,name'
         ];
     }
 

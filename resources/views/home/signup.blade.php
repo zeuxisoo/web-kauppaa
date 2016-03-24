@@ -28,6 +28,15 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">Role</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="role">
+                                    <option value="user" {{ (Input::old("role") == "user" ? "selected" : "") }}>User</option>
+                                    <option value="financier" {{ (Input::old("role") == "financier" ? "selected" : "") }}>Financier</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-default">Sign up</button>
                             </div>
