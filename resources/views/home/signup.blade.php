@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Sign up</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('web.home.signin') }}" accept-charset="UTF-8">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('web.home.signup') }}" accept-charset="UTF-8">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="remember" value="0">
                         <div class="form-group">
@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label for="email" class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ Input::old('email') }}">
                             </div>
                         </div>
                         <div class="form-group">

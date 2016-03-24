@@ -3,8 +3,16 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\SignUpRequest;
+use App\Repositories\UserRepository;
 
 class HomeController extends Controller {
+
+    protected $userRepository;
+
+    public function __construct(UserRepository $userRepository) {
+        $this->userRepository = $userRepository;
+    }
 
     public function index() {
         return view('home/index');
@@ -27,8 +35,15 @@ class HomeController extends Controller {
         }
     }
 
-    public function signup(Request $request) {
+    public function signup() {
         return view('home/signup');
+    }
+
+    public function doSignup(SignUpRequest $request) {
+        $input = $request->only('username', 'password', 'email');
+        $user  = $this->userRepository->create($input);
+
+        return redirect(route('web.home.index'))->withNotice('Account Created');
     }
 
     public function signout() {

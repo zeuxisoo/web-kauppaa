@@ -29,9 +29,10 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', ['as' => 'web.home.index', 'uses' => 'HomeController@index']);
     Route::get('signin', ['as' => 'web.home.signin', 'uses' => 'HomeController@signin']);
-    Route::get('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@signup']);
-    Route::get('signout', ['as' => 'web.home.signout', 'uses' => 'HomeController@signout']);
     Route::post('signin', ['as' => 'web.home.signin', 'uses' => 'HomeController@signin']);
+    Route::get('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@signup']);
+    Route::post('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@doSignup']);
+    Route::get('signout', ['as' => 'web.home.signout', 'uses' => 'HomeController@signout']);
 
     Route::group(['prefix' => 'panel', 'middleware' => 'auth'], function() {
         Route::get('index', ['as' => 'web.panel.index', 'uses' => 'PanelController@index']);
