@@ -3,7 +3,7 @@
 <head>
 <meta charset='utf-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Kauppaa</title>
+<title>Brand</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link href="{{ asset('assets/css/frontend.css') }}" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -18,7 +18,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand">Kauppaa</a>
+            <a class="navbar-brand">Brand</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">

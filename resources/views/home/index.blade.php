@@ -4,7 +4,7 @@
     <div id="index">
         <div class="container">
             <div class="jumbotron">
-                <h1>Welcome to Kauppaa!</h1>
+                <h1>Welcome to Brand!</h1>
                 <p>...</p>
                 <p>Please sign in to your account first.</p>
             </div>
