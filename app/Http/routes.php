@@ -48,6 +48,8 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('index', ['as' => 'web.user.profile.index', 'uses' => 'ProfileController@index']);
             Route::get('edit/profile', ['as' => 'web.user.profile.edit.profile', 'uses' => 'ProfileController@editProfile']);
             Route::post('update/profile', ['as' => 'web.user.profile.update.profile', 'uses' => 'ProfileController@updateProfile']);
+            Route::get('edit/password', ['as' => 'web.user.profile.edit.password', 'uses' => 'ProfileController@editPassword']);
+            Route::post('update/password', ['as' => 'web.user.profile.update.password', 'uses' => 'ProfileController@updatePassword']);
         });
     });
 

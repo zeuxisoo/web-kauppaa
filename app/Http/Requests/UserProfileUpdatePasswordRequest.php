@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UserProfileUpdateRequest extends Request {
+class UserProfileUpdatePasswordRequest extends Request {
 
     public function authorize() {
         return true;
@@ -11,8 +11,9 @@ class UserProfileUpdateRequest extends Request {
 
     public function rules() {
         return [
-            'username' => 'min:3|unique:users,username',
-            'email'    => 'email|unique:users,email',
+            'old_password'              => 'required',
+            'new_password'              => 'required|min:8|confirmed',
+            'new_password_confirmation' => 'required|min:8'
         ];
     }
 

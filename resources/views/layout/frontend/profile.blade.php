@@ -15,7 +15,7 @@
                                 <a href="{{ route('web.user.profile.edit.profile') }}">Edit profile</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="">Edit password</a>
+                                <a href="{{ route('web.user.profile.edit.password') }}">Edit password</a>
                             </li>
                         </ul>
                     </div>

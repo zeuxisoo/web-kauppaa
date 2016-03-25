@@ -18,4 +18,8 @@ class UserRepository extends AppRepository {
         return $this->user->whereId($user_id)->update($input);
     }
 
+    public function updateMyPassword($user_id, $input) {
+        return $this->user->whereId($user_id)->update($input);
+    }
+
 }
