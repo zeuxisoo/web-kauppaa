@@ -11,7 +11,8 @@ class NewsTableSeeder extends Seeder {
         foreach(range(1, 10) as $index) {
             (new News)->create([
                 'title'   => $faker->sentence,
-                'content' => $faker->paragraph,
+                'summary' => $faker->paragraph,
+                'content' => $faker->paragraph(100),
             ]);
             sleep(1);
         }
