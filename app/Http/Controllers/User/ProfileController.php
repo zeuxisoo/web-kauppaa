@@ -9,6 +9,9 @@ use App\Repositories\UserRepository;
 
 class ProfileController extends Controller {
 
+    protected $user;
+    protected $userRepository;
+
     public function __construct(UserRepository $userRepository) {
         $this->user           = auth()->user();
         $this->userRepository = $userRepository;

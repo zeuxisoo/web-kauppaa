@@ -6,7 +6,7 @@ use App\Repositories\NewsRepository;
 
 class HomeController extends Controller {
 
-    private $newsRepository;
+    protected $newsRepository;
 
     public function __construct(NewsRepository $newsRepository) {
         $this->newsRepository = $newsRepository;

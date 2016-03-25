@@ -5,6 +5,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
 class CheckForUserRole {
+
     protected $auth;
 
     public function __construct(Guard $auth) {
@@ -18,4 +19,5 @@ class CheckForUserRole {
 
         return $next($request);
     }
+
 }

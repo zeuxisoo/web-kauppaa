@@ -10,6 +10,7 @@ use App\Repositories\NewsRepository;
 class HomeController extends Controller {
 
     protected $userRepository;
+    protected $newsRepository;
 
     public function __construct(UserRepository $userRepository, NewsRepository $newsRepository) {
         $this->userRepository = $userRepository;

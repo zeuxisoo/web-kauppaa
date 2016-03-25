@@ -7,8 +7,9 @@ use App\Repositories\NewsRepository;
 
 class HomeController extends Controller {
 
-    private $applyRepository;
-    private $newsRepository;
+    protected $user;
+    protected $applyRepository;
+    protected $newsRepository;
 
     public function __construct(ApplyRepository $applyRepository, NewsRepository $newsRepository) {
         $this->user            = auth()->user();

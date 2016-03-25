@@ -10,8 +10,9 @@ use App\Repositories\ApplyPhotoRepository;
 
 class ApplyController extends Controller {
 
-    private $applyRepository;
-    private $applyPhotoRepository;
+    protected $user;
+    protected $applyRepository;
+    protected $applyPhotoRepository;
 
     public function __construct(ApplyRepository $applyRepository, ApplyPhotoRepository $applyPhotoRepository) {
         $this->user                 = auth()->user();

@@ -5,6 +5,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
 class CheckForAdminRole {
+
     protected $auth;
 
     public function __construct(Guard $auth) {
@@ -18,4 +19,5 @@ class CheckForAdminRole {
 
         return $next($request);
     }
+
 }
