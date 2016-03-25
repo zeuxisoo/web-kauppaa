@@ -30,8 +30,18 @@ class HomeController extends Controller {
         $input = $request->only('username', 'password');
         $remember = $request->only('remember');
 
-        if (Auth::attempt($input, $remember) == true) {
-            return redirect(route('web.user.home.index'));
+        if ($a = Auth::attempt($input, $remember) == true) {
+            $user = Auth::user();
+
+            if ($user->hasRole('user') === true) {
+                $route = 'web.user.home.index';
+            }else if ($user->hasRole('financier') === true) {
+                $route = 'web.financier.home.index';
+            }else{
+                $route = 'web.home.index';
+            }
+
+            return redirect(route($route));
         }else{
             return redirect()->back()->withInput()->withErrors([
                 'email' => 'These credentials do not match our records.',
