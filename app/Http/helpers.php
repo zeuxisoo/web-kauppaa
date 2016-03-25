@@ -1,17 +1,6 @@
 <?php
 function status($code) {
-    $names = [
-        1 => 'waiting',
-        2 => 'reviewing',
-        3 => 'approved',
-        4 => 'completed'
-    ];
-
-    if (array_key_exists($code, $names) !== true) {
-        throw new Exception('Can not map the status code to text');
-    }else{
-        return $names[$code];
-    }
+    return ucfirst($code);
 }
 
 function gender($code) {
