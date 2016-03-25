@@ -9,7 +9,7 @@
                         <div class="panel-heading">Menu</div>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="">Edit profile</a>
+                                <a href="{{ route('web.user.profile.edit') }}">Edit profile</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="">Edit password</a>
