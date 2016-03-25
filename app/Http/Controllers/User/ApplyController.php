@@ -59,9 +59,17 @@ class ApplyController extends Controller {
 
     public function show($id) {
         $apply  = $this->applyRepository->findMyApplyById($this->user->id, $id);
-        $photos = $apply->photos;
 
-        return view('user/apply/show', compact('apply', 'photos'));
+        // Make sure the records is exists and own by related user
+        if (empty($apply->id) === true) {
+            return redirect()->back()->withErrors([
+                'error' => 'Can not find related records'
+            ]);
+        }else{
+            $photos = $apply->photos;
+
+            return view('user/apply/show', compact('apply', 'photos'));
+        }
     }
 
     private function uploadFile($user_id, $apply_id, $category, $file) {
