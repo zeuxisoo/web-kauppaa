@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\User;
 
 use Image;
+use Uuid;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserApplyStoreRequest;
 use App\Repositories\ApplyRepository;
@@ -32,6 +33,7 @@ class ApplyController extends Controller {
         // Merge all input data with user id
         $user_id     = $this->user->id;
         $apply_input = array_merge($request->all(), [
+            'code'    => Uuid::generate(),
             'user_id' => $user_id
         ]);
 

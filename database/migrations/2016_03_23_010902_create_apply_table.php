@@ -8,6 +8,7 @@ class CreateApplyTable extends Migration {
         Schema::create('applies', function(Blueprint $table) {
             $table->increments('id');
             $table->mediumInteger('user_id')->unsigned()->index();
+            $table->string('code', 40)->index();
             $table->string('chinese_name', 50);
             $table->string('english_name', 50);
             $table->string('hkid', 10);

@@ -15,7 +15,7 @@
                             @foreach($applies as $apply)
                                 <div class="row application">
                                     <div class="col-md-10">
-                                        <div class="title">Your name: {{ $apply->chinese_name }}</div>
+                                        <div class="title">Ref code: {{ $apply->code }}</div>
                                         <div class="status">
                                             <small class="text-muted">
                                                 submitted at {{ $apply->created_at }}, status is <strong>{{ status($apply->status) }}</strong>

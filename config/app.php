@@ -215,7 +215,7 @@ return [
 
         'Image' => Intervention\Image\Facades\Image::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
-
+        'Uuid' => Webpatser\Uuid\Uuid::class,
     ],
 
 ];

@@ -17,11 +17,11 @@ class UserApplyStoreRequest extends Request {
             'gender'               => 'required',
             'occupation'           => 'required',
             'monthly_income'       => 'required',
-            'property_ownership_1' => 'required_without:property_ownership_2,property_ownership_3,property_ownership_4,property_ownership_5',
-            'property_ownership_2' => 'required_without:property_ownership_1,property_ownership_3,property_ownership_4,property_ownership_5',
-            'property_ownership_3' => 'required_without:property_ownership_1,property_ownership_2,property_ownership_4,property_ownership_5',
-            'property_ownership_4' => 'required_without:property_ownership_1,property_ownership_2,property_ownership_3,property_ownership_5',
-            'property_ownership_5' => 'required_without:property_ownership_1,property_ownership_2,property_ownership_3,property_ownership_4',
+            'property_ownership_1' => 'required_without_all:property_ownership_2,property_ownership_3,property_ownership_4,property_ownership_5',
+            'property_ownership_2' => 'required_without_all:property_ownership_1,property_ownership_3,property_ownership_4,property_ownership_5',
+            'property_ownership_3' => 'required_without_all:property_ownership_1,property_ownership_2,property_ownership_4,property_ownership_5',
+            'property_ownership_4' => 'required_without_all:property_ownership_1,property_ownership_2,property_ownership_3,property_ownership_5',
+            'property_ownership_5' => 'required_without_all:property_ownership_1,property_ownership_2,property_ownership_3,property_ownership_4',
             'loan_type'            => 'required',
             'apply_amount'         => 'required',
             'loan_period'          => 'required',
@@ -36,11 +36,11 @@ class UserApplyStoreRequest extends Request {
 
     public function messages() {
         return [
-            'property_ownership_1.required_without' => 'Please select at least one property ownership',
-            'property_ownership_2.required_without' => 'Please select at least one property ownership',
-            'property_ownership_3.required_without' => 'Please select at least one property ownership',
-            'property_ownership_4.required_without' => 'Please select at least one property ownership',
-            'property_ownership_5.required_without' => 'Please select at least one property ownership',
+            'property_ownership_1.required_without_all' => 'Please select at least one property ownership (code: 1)',
+            'property_ownership_2.required_without_all' => 'Please select at least one property ownership (code: 2)',
+            'property_ownership_3.required_without_all' => 'Please select at least one property ownership (code: 3)',
+            'property_ownership_4.required_without_all' => 'Please select at least one property ownership (code: 4)',
+            'property_ownership_5.required_without_all' => 'Please select at least one property ownership (code: 5)',
         ];
     }
 
