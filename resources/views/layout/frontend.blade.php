@@ -40,7 +40,7 @@
                 <ul class="nav navbar-nav pull-right">
                     @if (Auth::user())
                         <li>
-                            <a href="javascript:void(0)">
+                            <a href="{{ route('web.user.profile.index') }}">
                                 <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                             </a>
                         </li>

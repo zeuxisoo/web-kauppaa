@@ -43,8 +43,11 @@ Route::group(['middleware' => ['web']], function () {
             Route::post('store', ['as' => 'web.user.apply.store', 'uses' => 'ApplyController@store']);
             Route::get('show/{id}', ['as' => 'web.user.apply.show', 'uses' => 'ApplyController@show']);
         });
-    });
 
+        Route::group(['prefix' => 'profile'], function() {
+            Route::get('index', ['as' => 'web.user.profile.index', 'uses' => 'ProfileController@index']);
+        });
+    });
 
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
         Route::get('/', ['as' => 'web.admin.index', 'uses' => 'HomeController@index']);
