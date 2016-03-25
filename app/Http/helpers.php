@@ -54,3 +54,18 @@ function payroll($code) {
         return $names[$code];
     }
 }
+
+function homePage() {
+    $user  = auth()->user;
+    $route = '';
+
+    if ($user->hasRole('user') === true) {
+        $route = 'web.user.home.index';
+    }else if ($user->hasRole('financier') === true) {
+        $route = 'web.financier.home.index';
+    }else{
+        $route = 'web.home.index';
+    }
+
+    return $route;
+}

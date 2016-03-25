@@ -10,6 +10,10 @@ class NewsRepository extends AppRepository {
         $this->news = $news;
     }
 
+    public function findById($id) {
+        return $this->news->find($id);
+    }
+
     public function findAll() {
         return $this->news->orderBy('created_at', 'desc')->simplePaginate(5);
     }

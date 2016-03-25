@@ -34,6 +34,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@doSignup']);
     Route::get('signout', ['as' => 'web.home.signout', 'uses' => 'HomeController@signout']);
 
+    Route::group(['prefix' => 'news'], function() {
+        Route::get('show/{id}', ['as' => 'web.news.show', 'uses' => 'NewsController@show']);
+    });
+
     Route::group(['namespace' => 'Account', 'prefix' => 'account'], function() {
         Route::get('index', ['as' => 'web.account.index', 'uses' => 'AccountController@index']);
         Route::get('edit/profile', ['as' => 'web.account.edit_profile', 'uses' => 'AccountController@editProfile']);
