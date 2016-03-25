@@ -53,6 +53,10 @@ Route::group(['middleware' => ['web']], function () {
         });
     });
 
+    Route::group(['namespace' => 'Financier', 'prefix' => 'financier', 'middleware' => 'role.financier:financier'], function() {
+        Route::get('home', ['as' => 'web.financier.home.index', 'uses' => 'HomeController@index']);
+    });
+
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
         Route::get('/', ['as' => 'web.admin.index', 'uses' => 'HomeController@index']);
         Route::post('signin', ['as' => 'web.admin.signin', 'uses' => 'HomeController@signin']);
