@@ -19,16 +19,16 @@ class ProfileController extends Controller {
         return view('user/profile/index', compact('user', 'user_applies'));
     }
 
-    public function edit() {
+    public function editProfile() {
         $user = $this->user;
 
-        return view('user/profile/edit', compact('user'));
+        return view('user/profile/edit_profile', compact('user'));
     }
 
-    public function update(UserProfileUpdateRequest $request) {
+    public function updateProfile(UserProfileUpdateRequest $request) {
         $input = $request->only('username', 'email');
+        $data  = [];
 
-        $data = [];
         if (empty($input['username']) === false) {
             $data['username'] = $input['username'];
         }
@@ -37,7 +37,9 @@ class ProfileController extends Controller {
             $data['email'] = $input['email'];
         }
 
-        $this->userRepository->updateMyProfile($this->user->id, $data);
+        if (empty($data) === false) {
+            $this->userRepository->updateMyProfile($this->user->id, $data);
+        }
 
         return redirect()->back()->withNotice('Profile updated');
     }

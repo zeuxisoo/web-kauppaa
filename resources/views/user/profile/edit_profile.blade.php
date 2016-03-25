@@ -4,7 +4,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Edit Profile</div>
         <div class="panel-body">
-            <form class="form-horizontal" method="post" action="{{ route('web.user.profile.update') }}">
+            <form class="form-horizontal" method="post" action="{{ route('web.user.profile.update.profile') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="username" class="col-sm-2 control-label">Username</label>

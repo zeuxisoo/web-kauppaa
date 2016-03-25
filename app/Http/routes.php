@@ -46,8 +46,8 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::group(['prefix' => 'profile'], function() {
             Route::get('index', ['as' => 'web.user.profile.index', 'uses' => 'ProfileController@index']);
-            Route::get('edit', ['as' => 'web.user.profile.edit', 'uses' => 'ProfileController@edit']);
-            Route::post('update', ['as' => 'web.user.profile.update', 'uses' => 'ProfileController@update']);
+            Route::get('edit/profile', ['as' => 'web.user.profile.edit.profile', 'uses' => 'ProfileController@editProfile']);
+            Route::post('update/profile', ['as' => 'web.user.profile.update.profile', 'uses' => 'ProfileController@updateProfile']);
         });
     });
 
