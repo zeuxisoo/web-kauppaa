@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder {
             'username' => "financier",
             'password' => Hash::make("12345678"),
             'email'    => "financier@financier.com"
-        ])->attachRole($user_role);
+        ])->attachRole($financier_role);
 
         sleep(1);
 
