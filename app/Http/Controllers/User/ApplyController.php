@@ -37,7 +37,7 @@ class ApplyController extends Controller {
 
         // Set default status
         if (array_key_exists('status', $apply_input) === false) {
-            $apply_input['status'] = 1;
+            $apply_input['status'] = 'waiting';
         }
 
         // Create apply and apply photo record

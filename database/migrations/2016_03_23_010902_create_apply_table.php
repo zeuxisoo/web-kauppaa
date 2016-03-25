@@ -25,7 +25,9 @@ class CreateApplyTable extends Migration {
             $table->tinyInteger('payroll')->unsigned()->default(1);
             $table->tinyInteger('mpf')->unsigned()->default(1);
             $table->tinyInteger('once_bankruptcy')->unsigned()->default(2);
-            $table->tinyInteger('status')->unsigned()->default(1); // 1: waiting, 2: reviewing, 3: approved, 4: completed
+            $table->enum('status', [
+                'waiting', 'reviewing', 'published', 'matched', 'approved', 'completed'
+            ])->default('waiting');
             $table->timestamps();
         });
     }
