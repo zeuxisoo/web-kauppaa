@@ -15,7 +15,7 @@ class NewsController extends Controller {
         $news = $this->newsRepository->findById($id);
 
         if (empty($news->id) === true) {
-            return redirect(homePage())->withErrors([
+            return redirect(route(homePage()))->withErrors([
                 'error' => 'Can not found related news'
             ]);
         }else{

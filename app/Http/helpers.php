@@ -56,7 +56,7 @@ function payroll($code) {
 }
 
 function homePage() {
-    $user  = auth()->user;
+    $user  = \Auth::user();
     $route = '';
 
     if ($user->hasRole('user') === true) {
