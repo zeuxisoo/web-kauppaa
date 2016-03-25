@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Account;
 
 use Hash;
 use App\Http\Controllers\Controller;
@@ -7,7 +7,7 @@ use App\Http\Requests\UserProfileUpdateProfileRequest;
 use App\Http\Requests\UserProfileUpdatePasswordRequest;
 use App\Repositories\UserRepository;
 
-class ProfileController extends Controller {
+class AccountController extends Controller {
 
     protected $user;
     protected $userRepository;
@@ -21,13 +21,13 @@ class ProfileController extends Controller {
         $user         = $this->user;
         $user_applies = $user->applies;
 
-        return view('user/profile/index', compact('user', 'user_applies'));
+        return view('account/index', compact('user', 'user_applies'));
     }
 
     public function editProfile() {
         $user = $this->user;
 
-        return view('user/profile/edit_profile', compact('user'));
+        return view('account/edit_profile', compact('user'));
     }
 
     public function updateProfile(UserProfileUpdateProfileRequest $request) {
@@ -50,7 +50,7 @@ class ProfileController extends Controller {
     }
 
     public function editPassword() {
-        return view('user/profile/edit_password');
+        return view('account/edit_password');
     }
 
     public function updatePassword(UserProfileUpdatePasswordRequest $request) {

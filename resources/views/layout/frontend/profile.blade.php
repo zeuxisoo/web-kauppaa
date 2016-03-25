@@ -9,13 +9,13 @@
                         <div class="panel-heading">Menu</div>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="{{ route('web.user.profile.index') }}">My profile</a>
+                                <a href="{{ route('web.account.index') }}">My profile</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="{{ route('web.user.profile.edit.profile') }}">Edit profile</a>
+                                <a href="{{ route('web.account.edit_profile') }}">Edit profile</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="{{ route('web.user.profile.edit.password') }}">Edit password</a>
+                                <a href="{{ route('web.account.edit_password') }}">Edit password</a>
                             </li>
                         </ul>
                     </div>

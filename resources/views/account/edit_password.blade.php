@@ -4,7 +4,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Edit Password</div>
         <div class="panel-body">
-            <form class="form-horizontal" method="post" action="{{ route('web.user.profile.update.password') }}">
+            <form class="form-horizontal" method="post" action="{{ route('web.account.update_password') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="old_password" class="col-sm-3 control-label">Old password</label>

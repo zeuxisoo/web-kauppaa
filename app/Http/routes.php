@@ -34,6 +34,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@doSignup']);
     Route::get('signout', ['as' => 'web.home.signout', 'uses' => 'HomeController@signout']);
 
+    Route::group(['namespace' => 'Account', 'prefix' => 'account'], function() {
+        Route::get('index', ['as' => 'web.account.index', 'uses' => 'AccountController@index']);
+        Route::get('edit/profile', ['as' => 'web.account.edit_profile', 'uses' => 'AccountController@editProfile']);
+        Route::post('update/profile', ['as' => 'web.account.update_profile', 'uses' => 'AccountController@updateProfile']);
+        Route::get('edit/password', ['as' => 'web.account.edit_password', 'uses' => 'AccountController@editPassword']);
+        Route::post('update/password', ['as' => 'web.account.update_password', 'uses' => 'AccountController@updatePassword']);
+    });
+
     Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => 'role.user:user'], function() {
         Route::get('home', ['as' => 'web.user.home.index', 'uses' => 'HomeController@index']);
 
@@ -42,14 +50,6 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('create', ['as' => 'web.user.apply.create', 'uses' => 'ApplyController@create']);
             Route::post('store', ['as' => 'web.user.apply.store', 'uses' => 'ApplyController@store']);
             Route::get('show/{id}', ['as' => 'web.user.apply.show', 'uses' => 'ApplyController@show']);
-        });
-
-        Route::group(['prefix' => 'profile'], function() {
-            Route::get('index', ['as' => 'web.user.profile.index', 'uses' => 'ProfileController@index']);
-            Route::get('edit/profile', ['as' => 'web.user.profile.edit.profile', 'uses' => 'ProfileController@editProfile']);
-            Route::post('update/profile', ['as' => 'web.user.profile.update.profile', 'uses' => 'ProfileController@updateProfile']);
-            Route::get('edit/password', ['as' => 'web.user.profile.edit.password', 'uses' => 'ProfileController@editPassword']);
-            Route::post('update/password', ['as' => 'web.user.profile.update.password', 'uses' => 'ProfileController@updatePassword']);
         });
     });
 

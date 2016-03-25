@@ -32,6 +32,10 @@
                         <li><a href="{{ route('web.user.home.index') }}">Home</a></li>
                         <li><a href="{{ route('web.user.apply.index') }}">Apply</a></li>
                     @endrole
+
+                    @role('financier')
+                        <li><a href="{{ route('web.financier.home.index') }}">Home</a></li>
+                    @endrole
                 @else
                     <li><a href="{{ route('web.home.index') }}">Home</a></li>
                 @endif
@@ -40,7 +44,7 @@
                 <ul class="nav navbar-nav pull-right">
                     @if (Auth::user())
                         <li>
-                            <a href="{{ route('web.user.profile.index') }}">
+                            <a href="{{ route('web.account.index') }}">
                                 <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                             </a>
                         </li>
