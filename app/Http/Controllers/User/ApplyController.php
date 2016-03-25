@@ -3,7 +3,7 @@ namespace App\Http\Controllers\User;
 
 use Image;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserApplyStoreRequests;
+use App\Http\Requests\UserApplyStoreRequest;
 use App\Repositories\ApplyRepository;
 use App\Repositories\ApplyPhotoRepository;
 
@@ -28,7 +28,7 @@ class ApplyController extends Controller {
         return view('user/apply/create');
     }
 
-    public function store(UserApplyStoreRequests $request) {
+    public function store(UserApplyStoreRequest $request) {
         // Merge all input data with user id
         $user_id     = $this->user->id;
         $apply_input = array_merge($request->all(), [

@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UserApplyStoreRequests extends Request {
+class UserApplyStoreRequest extends Request {
 
     public function authorize() {
         return true;
