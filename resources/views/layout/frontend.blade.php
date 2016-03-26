@@ -18,7 +18,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">{{ trans('layout.frontend.toggle_navigation') }}</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -29,15 +29,15 @@
                 <ul class="nav navbar-nav">
                 @if (Auth::user())
                     @role('user')
-                        <li><a href="{{ route('web.user.home.index') }}">Home</a></li>
-                        <li><a href="{{ route('web.user.apply.index') }}">Apply</a></li>
+                        <li><a href="{{ route('web.user.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
+                        <li><a href="{{ route('web.user.apply.index') }}">{{ trans('layout.frontend.navbar.apply') }}</a></li>
                     @endrole
 
                     @role('financier')
-                        <li><a href="{{ route('web.financier.home.index') }}">Home</a></li>
+                        <li><a href="{{ route('web.financier.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
                     @endrole
                 @else
-                    <li><a href="{{ route('web.home.index') }}">Home</a></li>
+                    <li><a href="{{ route('web.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
                 @endif
                 </ul>
 
@@ -48,10 +48,10 @@
                                 <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                             </a>
                         </li>
-                        <li><a href="{{ route('web.home.signout') }}">Sign out</a></li>
+                        <li><a href="{{ route('web.home.signout') }}">{{ trans('layout.frontend.navbar.signout') }}</a></li>
                     @else
-                        <li><a href="{{ route('web.home.signin') }}">Sign in</a></li>
-                        <li><a href="{{ route('web.home.signup') }}">Sign up</a></li>
+                        <li><a href="{{ route('web.home.signin') }}">{{ trans('layout.frontend.navbar.signin') }}</a></li>
+                        <li><a href="{{ route('web.home.signup') }}">{{ trans('layout.frontend.navbar.signup') }}</a></li>
                     @endif
                 </ul>
             </div>
@@ -64,7 +64,7 @@
             {{-- Application flash message --}}
             @if (Session::get('errors'))
                 <div class="alert alert-error alert-danger">
-                    <strong>Error!</strong>&nbsp;
+                    <strong>{{ trans('layout.frontend.alert.error_title') }}</strong>&nbsp;
 
                     @if (is_array(Session::get('errors')))
                         {{ head(Session::get('errors')) }}
@@ -76,7 +76,7 @@
 
             @if (Session::get('notice'))
                 <div class="alert alert-success">
-                    <strong>Success!</strong>&nbsp;{{{ Session::get('notice') }}}
+                    <strong>{{ trans('layout.frontend.alert.success_title') }}</strong>&nbsp;{{{ Session::get('notice') }}}
                 </div>
             @endif
         </div>

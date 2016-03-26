@@ -14,6 +14,7 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">{{ trans('layout.backend.toggle_navigation') }}</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -23,9 +24,9 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 @if (Auth::user())
-                    <li><a href="{{ route('web.admin.dashboard.index') }}">Dashboard</a></li>
+                    <li><a href="{{ route('web.admin.dashboard.index') }}">{{ trans('layout.backend.navbar.dashboard') }}</a></li>
                 @else
-                    <li><a href="{{ route('web.admin.index') }}">Home</a></li>
+                    <li><a href="{{ route('web.admin.index') }}">{{ trans('layout.backend.navbar.home') }}</a></li>
                 @endif
             </ul>
 
@@ -36,7 +37,7 @@
                             <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
                         </a>
                     </li>
-                    <li><a href="{{ route('web.home.signout') }}">Sign out</a></li>
+                    <li><a href="{{ route('web.home.signout') }}">{{ trans('layout.backend.navbar.signout') }}</a></li>
                 @endif
             </ul>
         </div>
@@ -48,7 +49,7 @@
             {{-- Application flash message --}}
             @if (Session::get('errors'))
                 <div class="alert alert-error alert-danger">
-                    <strong>Error!</strong>&nbsp;
+                    <strong>{{ trans('layout.backend.alert.error_title') }}</strong>&nbsp;
 
                     @if (is_array(Session::get('errors')))
                         {{ head(Session::get('errors')) }}
@@ -60,7 +61,7 @@
 
             @if (Session::get('notice'))
                 <div class="alert alert-success">
-                    <strong>Success!</strong>&nbsp;{{{ Session::get('notice') }}}
+                    <strong>{{ trans('layout.backend.alert.success_title') }}</strong>&nbsp;{{{ Session::get('notice') }}}
                 </div>
             @endif
         </div>
