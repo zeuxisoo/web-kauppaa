@@ -18,7 +18,7 @@
                                         <div class="title">{{ trans('user.home.index.applications.ref_code', ['code' => $apply->code]) }}</div>
                                         <div class="status">
                                             <small class="text-muted">
-                                                {!! trans('user.home.index.applications.status', ['created_at' => $apply->created_at, 'status' => $apply_status]) !!}
+                                                {!! trans('user.home.index.applications.status', ['created_at' => $apply->created_at, 'status' => $apply->status]) !!}
                                             </small>
                                         </div>
                                     </div>
