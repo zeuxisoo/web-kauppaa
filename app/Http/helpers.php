@@ -23,7 +23,7 @@ function occupation($code) {
 }
 
 function yesOrNo($status) {
-    return $status === true ? "Yes" : "No";
+    return $status == true ? "Yes" : "No";
 }
 
 function loanType($code) {

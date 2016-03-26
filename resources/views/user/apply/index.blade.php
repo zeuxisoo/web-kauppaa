@@ -5,30 +5,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="pull-left page-title">My list</div>
-                    <a href="{{ route('web.user.apply.create') }}" class="btn btn-md btn-info pull-right">Apply It</a>
+                    <div class="pull-left page-title">{{ trans('user.apply.index.title') }}</div>
+                    <a href="{{ route('web.user.apply.create') }}" class="btn btn-md btn-info pull-right">{{ trans('user.apply.index.apply_it') }}</a>
                 </div>
             </div>
             <hr />
             <div class="row">
                 <div class="col-md-12">
                     @if ($applies->isEmpty() === true)
-                        <div class="alert alert-info" role="alert">No any submitted application</div>
+                        <div class="alert alert-info" role="alert">{{ trans('user.apply.index.alert_empty') }}</div>
                     @else
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Chinese name</th>
-                                        <th>English name</th>
-                                        <th>Gender</th>
-                                        <th>Occupation</th>
-                                        <th>Monthly Income</th>
-                                        <th>Apply amount</th>
-                                        <th>Created at</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>{{ trans('user.apply.index.table.menu.chinese_name') }}</th>
+                                        <th>{{ trans('user.apply.index.table.menu.english_name') }}</th>
+                                        <th>{{ trans('user.apply.index.table.menu.gender') }}</th>
+                                        <th>{{ trans('user.apply.index.table.menu.occupation') }}</th>
+                                        <th>{{ trans('user.apply.index.table.menu.monthly_income') }}</th>
+                                        <th>{{ trans('user.apply.index.table.menu.apply_amount') }}</th>
+                                        <th>{{ trans('user.apply.index.table.menu.created_at') }}</th>
+                                        <th>{{ trans('user.apply.index.table.menu.status') }}</th>
+                                        <th>{{ trans('user.apply.index.table.menu.action') }}</th>
                                     </tr>
                                 </thead>
                                 @foreach($applies as $apply)
@@ -44,7 +44,7 @@
                                             <td>{{ $apply->created_at->diffForHumans() }}</td>
                                             <td>{{ status($apply->status) }}</td>
                                             <td>
-                                                <a href="{{ route('web.user.apply.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
+                                                <a href="{{ route('web.user.apply.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">{{ trans('user.apply.index.table.row.view_button') }}</a>
                                             </td>
                                         </tr>
                                     </tbody>
