@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SignUpRequest;
 use App\Repositories\UserRepository;
 use App\Repositories\NewsRepository;
+use App\Repositories\RoleRepository;
 
 class HomeController extends Controller {
 
     protected $userRepository;
+    protected $roleRepository;
     protected $newsRepository;
 
-    public function __construct(UserRepository $userRepository, NewsRepository $newsRepository) {
+    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository, NewsRepository $newsRepository) {
         $this->userRepository = $userRepository;
+        $this->roleRepository = $roleRepository;
         $this->newsRepository = $newsRepository;
     }
 
@@ -49,8 +52,10 @@ class HomeController extends Controller {
         $input             = $request->only('username', 'password', 'email');
         $input['password'] = Hash::make($input['password']);
 
-        $role  = $request->input('role');
-        $user  = $this->userRepository->create($input, strtolower($role));
+        $role_name = $request->input('role');
+        $role      = $this->roleRepository->findByName($role_name);
+
+        $user  = $this->userRepository->create($input, $role);
 
         return redirect(route('web.home.index'))->withNotice(trans('home.signup.success.account_created'));
     }
