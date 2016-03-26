@@ -59,12 +59,16 @@ function homePage() {
     $user  = \Auth::user();
     $route = '';
 
-    if ($user->hasRole('user') === true) {
-        $route = 'web.user.home.index';
-    }else if ($user->hasRole('financier') === true) {
-        $route = 'web.financier.home.index';
-    }else{
+    if ($user === null) {
         $route = 'web.home.index';
+    }else{
+        if ($user->hasRole('user') === true) {
+            $route = 'web.user.home.index';
+        }else if ($user->hasRole('financier') === true) {
+            $route = 'web.financier.home.index';
+        }else{
+            $route = 'web.home.index';
+        }
     }
 
     return $route;
