@@ -58,7 +58,7 @@ class AccountController extends Controller {
 
         if (Hash::check($input['old_password'], $this->user->password) === false) {
             return redirect()->back()->withErrors([
-                'old_password' => 'The old password does not match',
+                'old_password' => trans('account.edit_password.error.old_password_not_match'),
             ]);
         }else{
             $this->userRepository->updateMyPassword($this->user->id, [

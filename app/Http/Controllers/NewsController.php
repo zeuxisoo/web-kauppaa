@@ -16,7 +16,7 @@ class NewsController extends Controller {
 
         if (empty($news->id) === true) {
             return redirect(route(homePage()))->withErrors([
-                'error' => 'Can not found related news'
+                'error' => trans('news.show.error.not_found_news')
             ]);
         }else{
             return view('news/show', compact('news'));

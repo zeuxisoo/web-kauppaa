@@ -35,7 +35,7 @@ class HomeController extends Controller {
             return redirect(route(homePage()));
         }else{
             return redirect()->back()->withInput()->withErrors([
-                'email' => 'These credentials do not match our records.',
+                'email' => trans('home.signin.error.invalid_credentials'),
             ]);
         }
     }

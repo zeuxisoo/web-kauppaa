@@ -11,7 +11,11 @@ return [
             'password'    => 'Password',
             'remember_me' => 'Remember me'
         ],
-        'signin_button' => 'Sign in'
+        'signin_button' => 'Sign in',
+
+        'error' => [
+            'invalid_credentials' => 'These credentials do not match our records',
+        ]
     ],
 
     'signup' => [

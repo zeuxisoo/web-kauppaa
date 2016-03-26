@@ -34,5 +34,9 @@ return [
             'confirm_password' => 'Confirm password',
         ],
         'update_button' => 'Update',
+
+        'error' => [
+            'old_password_not_match' => 'The old password does not match',
+        ]
     ]
 ];

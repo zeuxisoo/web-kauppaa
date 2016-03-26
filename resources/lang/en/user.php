@@ -133,6 +133,10 @@ return [
                 'village_houses'        => 'Village houses',
                 'no_property'           => 'No property',
             ],
+
+            'error' => [
+                'not_found_records' => 'Can not find related records',
+            ]
         ]
     ],
 ];

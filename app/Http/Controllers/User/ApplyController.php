@@ -66,7 +66,7 @@ class ApplyController extends Controller {
         // Make sure the records is exists and own by related user
         if (empty($apply->id) === true) {
             return redirect()->back()->withErrors([
-                'error' => 'Can not find related records'
+                'error' => trans('user.apply.show.error.not_found_records')
             ]);
         }else{
             $photos = $apply->photos;
