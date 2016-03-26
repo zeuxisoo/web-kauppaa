@@ -1,5 +1,9 @@
 {
   "private": true,
+  "scripts": {
+    "watch": "gulp watch",
+    "build": "gulp --production"
+  },
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.8.8"
