@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 use App\Http\Requests\SignUpRequest;
 use App\Repositories\UserRepository;
@@ -45,11 +46,13 @@ class HomeController extends Controller {
     }
 
     public function doSignup(SignUpRequest $request) {
-        $input = $request->only('username', 'password', 'email');
+        $input             = $request->only('username', 'password', 'email');
+        $input['password'] = Hash::make($input['password']);
+
         $role  = $request->input('role');
         $user  = $this->userRepository->create($input, strtolower($role));
 
-        return redirect(route('web.home.index'))->withNotice('Account Created');
+        return redirect(route('web.home.index'))->withNotice(trans('home.signup.success.account_created'));
     }
 
 

@@ -101,6 +101,14 @@ return [
             ],
             'browser_button' => 'Browse',
             'submit_button'  => 'Submit',
+
+            'error' => [
+                'at_least_one_property_ownership' => 'Please select at least one property ownership (code: :code)'
+            ],
+
+            'success' => [
+                'application_submitted' => 'Application submitted',
+            ]
         ],
 
         'show' => [

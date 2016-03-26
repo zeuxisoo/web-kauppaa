@@ -24,6 +24,10 @@ return [
             'email'    => 'Current is <strong>:email</strong>, Please keep it blank if you don\'t want to change it.',
         ],
         'update_button' => 'Update',
+
+        'success' => [
+            'profile_updated' => 'Profile updated'
+        ]
     ],
 
     'edit_password' => [
@@ -37,6 +41,10 @@ return [
 
         'error' => [
             'old_password_not_match' => 'The old password does not match',
+        ],
+
+        'success' => [
+            'password_updated' => 'Password updated',
         ]
     ]
 ];

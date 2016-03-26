@@ -46,7 +46,7 @@ class AccountController extends Controller {
             $this->userRepository->updateMyProfile($this->user->id, $data);
         }
 
-        return redirect()->back()->withNotice('Profile updated');
+        return redirect()->back()->withNotice(trans('account.edit_profile.success.profile_updated'));
     }
 
     public function editPassword() {
@@ -65,7 +65,7 @@ class AccountController extends Controller {
                 'password' => Hash::make($input['new_password'])
             ]);
 
-            return redirect()->back()->withNotice('Password updated');
+            return redirect()->back()->withNotice(trans('account.edit_password.success.password_updated'));
         }
     }
 

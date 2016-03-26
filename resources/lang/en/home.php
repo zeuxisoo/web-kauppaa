@@ -30,6 +30,10 @@ return [
             'user'      => 'User',
             'financier' => 'Financier'
         ],
-        'signup_button' => 'Sign up'
+        'signup_button' => 'Sign up',
+
+        'success' => [
+            'account_created' => 'Account Created'
+        ]
     ]
 ];

@@ -36,11 +36,11 @@ class UserApplyStoreRequest extends Request {
 
     public function messages() {
         return [
-            'property_ownership_1.required_without_all' => 'Please select at least one property ownership (code: 1)',
-            'property_ownership_2.required_without_all' => 'Please select at least one property ownership (code: 2)',
-            'property_ownership_3.required_without_all' => 'Please select at least one property ownership (code: 3)',
-            'property_ownership_4.required_without_all' => 'Please select at least one property ownership (code: 4)',
-            'property_ownership_5.required_without_all' => 'Please select at least one property ownership (code: 5)',
+            'property_ownership_1.required_without_all' => trans('user.apply.create.error.at_least_one_property_ownership', ['code' => 1]),
+            'property_ownership_2.required_without_all' => trans('user.apply.create.error.at_least_one_property_ownership', ['code' => 2]),
+            'property_ownership_3.required_without_all' => trans('user.apply.create.error.at_least_one_property_ownership', ['code' => 3]),
+            'property_ownership_4.required_without_all' => trans('user.apply.create.error.at_least_one_property_ownership', ['code' => 4]),
+            'property_ownership_5.required_without_all' => trans('user.apply.create.error.at_least_one_property_ownership', ['code' => 5]),
         ];
     }
 

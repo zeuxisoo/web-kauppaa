@@ -57,7 +57,7 @@ class ApplyController extends Controller {
             $this->applyPhotoRepository->create($input);
         }
 
-        return redirect()->back()->withNotice('Application submitted');
+        return redirect()->back()->withNotice(trans('user.apply.create.success.application_submitted'));
     }
 
     public function show($id) {
