@@ -11,6 +11,7 @@ class CreateApplyPhotoTable extends Migration {
             $table->mediumInteger('apply_id')->unsigned()->index();
             $table->string('category', 30); // hkid, address, income
             $table->string('photo', 60);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

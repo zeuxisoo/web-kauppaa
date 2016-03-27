@@ -1014,16 +1014,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.24",
+            "version": "v5.2.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "396297a5fd3c70c2fc1af68f09ee574a2380175c"
+                "reference": "b73ac62506c5c2bd49d87fcb1089f7759431e173"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/396297a5fd3c70c2fc1af68f09ee574a2380175c",
-                "reference": "396297a5fd3c70c2fc1af68f09ee574a2380175c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b73ac62506c5c2bd49d87fcb1089f7759431e173",
+                "reference": "b73ac62506c5c2bd49d87fcb1089f7759431e173",
                 "shasum": ""
             },
             "require": {
@@ -1138,7 +1138,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-03-22 13:45:19"
+            "time": "2016-03-25 17:12:52"
         },
         {
             "name": "league/flysystem",
@@ -2905,12 +2905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "e2ed11f29f418364cb7c9b5c7ee29ec2b4b15469"
+                "reference": "b749bff868026336dec1ba1a16c150728697353d"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Zizaco/entrust/zipball/b749bff868026336dec1ba1a16c150728697353d",
-                "reference": "e2ed11f29f418364cb7c9b5c7ee29ec2b4b15469",
+                "reference": "b749bff868026336dec1ba1a16c150728697353d",
                 "shasum": ""
             },
             "require": {
@@ -2965,7 +2965,7 @@
                 "permission",
                 "roles"
             ],
-            "time": "2016-03-04 18:05:30"
+            "time": "2016-03-24 15:24:42"
         }
     ],
     "packages-dev": [

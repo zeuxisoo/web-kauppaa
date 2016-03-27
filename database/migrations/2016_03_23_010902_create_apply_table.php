@@ -29,6 +29,7 @@ class CreateApplyTable extends Migration {
             $table->enum('status', [
                 'waiting', 'reviewing', 'published', 'matched', 'approved', 'completed'
             ])->default('waiting');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
