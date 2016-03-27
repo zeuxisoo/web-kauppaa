@@ -24,4 +24,10 @@ class HomeController extends Controller {
         }
     }
 
+    public function signout() {
+        Auth::logout();
+
+        return redirect(route('web.admin.home.index'));
+    }
+
 }

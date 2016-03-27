@@ -62,14 +62,21 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
-        Route::get('/', ['as' => 'web.admin.index', 'uses' => 'HomeController@index']);
-        Route::post('signin', ['as' => 'web.admin.signin', 'uses' => 'HomeController@signin']);
+        Route::get('/', ['as' => 'web.admin.home.index', 'uses' => 'HomeController@index']);
+        Route::post('signin', ['as' => 'web.admin.home.signin', 'uses' => 'HomeController@signin']);
+        Route::get('signout', ['as' => 'web.admin.home.signout', 'uses' => 'HomeController@signout']);
 
-        Route::group(['prefix' => 'dashboard', 'middleware' => 'role.custom:admin'], function() {
-            Route::get('/', ['as' => 'web.admin.dashboard.index', 'uses' => 'DashboardController@index']);
-            Route::get('show/{id}', ['as' => 'web.admin.dashboard.show', 'uses' => 'DashboardController@show']);
-            Route::get('edit/{id}', ['as' => 'web.admin.dashboard.edit', 'uses' => 'DashboardController@edit']);
-            Route::post('update/{id}', ['as' => 'web.admin.dashboard.update', 'uses' => 'DashboardController@update']);
+        Route::group(['middleware' => 'role.admin:admin'], function() {
+            Route::group(['prefix' => 'dashboard'], function() {
+                Route::get('/', ['as' => 'web.admin.dashboard.index', 'uses' => 'DashboardController@index']);
+            });
+
+            Route::group(['prefix' => 'apply'], function() {
+                Route::get('index', ['as' => 'web.admin.apply.index', 'uses' => 'ApplyController@index']);
+                Route::get('show/{id}', ['as' => 'web.admin.apply.show', 'uses' => 'ApplyController@show']);
+                Route::get('edit/{id}', ['as' => 'web.admin.apply.edit', 'uses' => 'ApplyController@edit']);
+                Route::post('update/{id}', ['as' => 'web.admin.apply.update', 'uses' => 'ApplyController@update']);
+            });
         });
     });
 });

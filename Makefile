@@ -10,3 +10,6 @@ watch:
 db-refresh:
 	@php artisan migrate:refresh
 	@php artisan db:seed
+
+bower:
+	@npm run bower

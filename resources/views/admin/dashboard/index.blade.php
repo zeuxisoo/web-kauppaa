@@ -1,44 +1,30 @@
-@extends('layout.backend')
+@extends('layout.backend.dashboard')
 
-@section('container')
-    <div id="index">
-        <div class="container">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Chinese name</th>
-                            <th>English name</th>
-                            <th>Gender</th>
-                            <th>Occupation</th>
-                            <th>Monthly Income</th>
-                            <th>Apply amount</th>
-                            <th>Created at</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    @foreach($applies as $apply)
-                        <tbody>
-                            <tr>
-                                <td>{{ $apply->id }}</td>
-                                <td>{{ $apply->chinese_name }}</td>
-                                <td>{{ $apply->english_name }}</td>
-                                <td>{{ $apply->gender }}</td>
-                                <td>{{ $apply->occupation }}</td>
-                                <td>{{ $apply->monthly_income }}</td>
-                                <td>{{ $apply->apply_amount }}</td>
-                                <td>{{ $apply->created_at->diffForHumans() }}</td>
-                                <td>{{ status($apply->status) }}</td>
-                                <td>
-                                    <a href="{{ route('web.admin.dashboard.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">View</a>
-                                    <a href="{{ route('web.admin.dashboard.edit', ['id' => $apply->id]) }}" class="btn btn-xs btn-info">Edit</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    @endforeach
-                </table>
+@inject('carbon', 'Carbon\Carbon')
+
+@section('container_dashboard')
+    <h3 class="page-header">Dashboard</h3>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Welcome!</h1>
+            <p>{{ $carbon->now() }}</p>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Shortcut</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">Applies</div>
+                <div class="col-md-9">
+                    <a href="{{ route('web.admin.apply.index') }}" class="btn btn-xs btn-default">Show applies</a>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-3">Other</div>
+                <div class="col-md-9">
+                    <a href="{{ route('web.admin.home.signout') }}" class="btn btn-xs btn-info">Logout</a>
+                </div>
             </div>
         </div>
     </div>

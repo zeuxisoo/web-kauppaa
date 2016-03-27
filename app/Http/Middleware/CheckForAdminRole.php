@@ -14,7 +14,7 @@ class CheckForAdminRole {
 
     public function handle($request, Closure $next, $roles) {
         if ($this->auth->guest() || !$request->user()->hasRole(explode('|', $roles))) {
-            return redirect(route('web.admin.index'));
+            return redirect(route('web.admin.home.index'));
         }
 
         return $next($request);

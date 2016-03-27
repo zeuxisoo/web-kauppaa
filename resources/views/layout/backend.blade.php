@@ -4,76 +4,23 @@
 <meta charset='utf-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Brand</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link href="{{ asset('assets/css/backend.css') }}" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('vendor/metisMenu/dist/metisMenu.min.css') }}" rel="stylesheet">
+<link href="{{ asset('vendor/startbootstrap-sb-admin-2/dist/css/timeline.css') }}" rel="stylesheet">
+<link href="{{ asset('vendor/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css') }}" rel="stylesheet">
+<link href="{{ asset('vendor/morrisjs/morris.css') }}" rel="stylesheet">
+<link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+<link href="{{ asset('client/css/backend.css') }}" rel="stylesheet">
 </head>
 <body>
-<div class="navbar navbar-static-top navbar-default navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">{{ trans('layout.backend.toggle_navigation') }}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">Brand+</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                @if (Auth::user())
-                    <li><a href="{{ route('web.admin.dashboard.index') }}">{{ trans('layout.backend.navbar.dashboard') }}</a></li>
-                @else
-                    <li><a href="{{ route('web.admin.index') }}">{{ trans('layout.backend.navbar.home') }}</a></li>
-                @endif
-            </ul>
+    @yield('container')
 
-            <ul class="nav navbar-nav pull-right">
-                @if (Auth::user())
-                    <li>
-                        <a href="javascript:void(0)">
-                            <strong>{{{ ucfirst(Auth::user()->username) }}}</strong>
-                        </a>
-                    </li>
-                    <li><a href="{{ route('web.home.signout') }}">{{ trans('layout.backend.navbar.signout') }}</a></li>
-                @endif
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="container">
-            {{-- Application flash message --}}
-            @if (Session::get('errors'))
-                <div class="alert alert-error alert-danger">
-                    <strong>{{ trans('layout.backend.alert.error_title') }}</strong>&nbsp;
-
-                    @if (is_array(Session::get('errors')))
-                        {{ head(Session::get('errors')) }}
-                    @else
-                        {{ Session::get('errors')->first() }}
-                    @endif
-                </div>
-            @endif
-
-            @if (Session::get('notice'))
-                <div class="alert alert-success">
-                    <strong>{{ trans('layout.backend.alert.success_title') }}</strong>&nbsp;{{{ Session::get('notice') }}}
-                </div>
-            @endif
-        </div>
-
-        @yield('container')
-
-        <div class="col-md-12 footer">
-            <hr>
-            <span class="pull-left">&copy; 2016</span>
-            <span class="pull-right">&nbsp;</span>
-        </div>
-    </div>
-</div>
+    <script src="{{ asset('vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/metisMenu/dist/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('vendor/raphael/raphael-min.js') }}"></script>
+    <script src="{{ asset('vendor/morrisjs/morris.min.js') }}"></script>
+    <script src="{{ asset('vendor/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js') }}"></script>
+    <script src="{{ asset('client/js/backend.js') }}"></script>
 </body>
 </html>

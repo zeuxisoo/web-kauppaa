@@ -8,4 +8,5 @@ Homestead.json
 /public/upload/apply
 /public/assets
 /public/build
+/public/vendor
 composer.phar
