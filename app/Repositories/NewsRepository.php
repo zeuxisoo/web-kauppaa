@@ -14,8 +14,24 @@ class NewsRepository extends AppRepository {
         return $this->news->find($id);
     }
 
-    public function findAll() {
-        return $this->news->orderBy('created_at', 'desc')->simplePaginate(5);
+    public function findAllWithSimplePaginate($per_page = 5) {
+        return $this->news->orderBy('created_at', 'desc')->simplePaginate($per_page);
+    }
+
+    public function findAllWithPaginate($per_page = 5) {
+        return $this->news->orderBy('created_at', 'desc')->paginate($per_page);
+    }
+
+    public function create($input) {
+        return (new News)->create($input);
+    }
+
+    public function updateById($id, $input) {
+        return $this->news->whereId($id)->update($input);
+    }
+
+    public function deleteByIds($ids) {
+        return $this->news->destroy($ids);
     }
 
 }

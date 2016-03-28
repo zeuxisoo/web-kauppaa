@@ -71,6 +71,15 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('/', ['as' => 'web.admin.dashboard.index', 'uses' => 'DashboardController@index']);
             });
 
+            Route::group(['prefix' => 'news'], function() {
+                Route::get('/create', ['as' => 'web.admin.news.create', 'uses' => 'NewsController@create']);
+                Route::post('/store', ['as' => 'web.admin.news.store', 'uses' => 'NewsController@store']);
+                Route::get('/manage', ['as' => 'web.admin.news.manage', 'uses' => 'NewsController@manage']);
+                Route::get('/edit/{id}', ['as' => 'web.admin.news.edit', 'uses' => 'NewsController@edit']);
+                Route::post('/update', ['as' => 'web.admin.news.update', 'uses' => 'NewsController@update']);
+                Route::post('/destroy', ['as' => 'web.admin.news.destroy', 'uses' => 'NewsController@destroy']);
+            });
+
             Route::group(['prefix' => 'apply'], function() {
                 Route::get('index', ['as' => 'web.admin.apply.index', 'uses' => 'ApplyController@index']);
                 Route::get('show/{id}', ['as' => 'web.admin.apply.show', 'uses' => 'ApplyController@show']);

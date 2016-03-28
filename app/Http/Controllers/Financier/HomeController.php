@@ -13,7 +13,7 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        $news = $this->newsRepository->findAll();
+        $news = $this->newsRepository->findAllWithSimplePaginate();
 
         return view('financier/home/index', compact('news'));
     }

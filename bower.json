@@ -1,6 +1,7 @@
 {
   "name": "kauppaa",
   "dependencies": {
-    "startbootstrap-sb-admin-2": "^1.0.8"
+    "startbootstrap-sb-admin-2": "^1.0.8",
+    "ckeditor": "^4.5.7"
   }
 }

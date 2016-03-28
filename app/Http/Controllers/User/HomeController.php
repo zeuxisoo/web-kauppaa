@@ -19,7 +19,7 @@ class HomeController extends Controller {
 
     public function index() {
         $applies = $this->applyRepository->findMyApplies($this->user->id);
-        $news    = $this->newsRepository->findAll();
+        $news    = $this->newsRepository->findAllWithSimplePaginate();
 
         return view('user/home/index', compact('applies', 'news'));
     }

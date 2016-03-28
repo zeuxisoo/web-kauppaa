@@ -14,6 +14,14 @@
         <div class="panel-heading">Shortcut</div>
         <div class="panel-body">
             <div class="row">
+                <div class="col-md-3">News</div>
+                <div class="col-md-9">
+                    <a href="{{ route('web.admin.news.create') }}" class="btn btn-xs btn-default">Create news</a>
+                    <a href="{{ route('web.admin.news.manage') }}" class="btn btn-xs btn-default">Manage news</a>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
                 <div class="col-md-3">Applies</div>
                 <div class="col-md-9">
                     <a href="{{ route('web.admin.apply.index') }}" class="btn btn-xs btn-default">Show applies</a>

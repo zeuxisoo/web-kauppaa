@@ -21,6 +21,8 @@
     <script src="{{ asset('vendor/raphael/raphael-min.js') }}"></script>
     <script src="{{ asset('vendor/morrisjs/morris.min.js') }}"></script>
     <script src="{{ asset('vendor/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js') }}"></script>
+    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('vendor/ckeditor/adapters/jquery.js') }}"></script>
     <script src="{{ asset('client/js/backend.js') }}"></script>
 </body>
 </html>
