@@ -7,7 +7,7 @@
                     <a href="{{ route('web.news.show', ['id' => $row->id]) }}">
                         <h4 class="media-heading">{{ $row->title }}</h4>
                     </a>
-                    <p>{{ $row->summary }}</p>
+                    <p>{!! $row->summary !!}</p>
                     <small class="text-muted">{!! trans('shared.news.post_at', ['created_at' => $row->created_at]) !!}</small>
                 </div>
             </div>

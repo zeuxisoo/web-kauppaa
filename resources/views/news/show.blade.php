@@ -15,8 +15,8 @@
                                 </small>
                             </div>
                             <hr>
-                            <p>{{ $news->summary }}</p>
-                            <p>{{ $news->content }}</p>
+                            <p>{!! $news->summary !!}</p>
+                            <p>{!! $news->content !!}</p>
                         </div>
                     </div>
                 </div>
