@@ -27,22 +27,24 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                @if (Auth::user())
-                    @role('user')
-                        <li><a href="{{ route('web.user.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
-                        <li><a href="{{ route('web.user.apply.index') }}">{{ trans('layout.frontend.navbar.apply') }}</a></li>
-                    @endrole
+                    @if (Auth::user())
+                        @role('user')
+                            <li><a href="{{ route('web.user.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
+                            <li><a href="{{ route('web.user.apply.index') }}">{{ trans('layout.frontend.navbar.apply') }}</a></li>
+                        @endrole
 
-                    @role('financier')
-                        <li><a href="{{ route('web.financier.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
-                    @endrole
+                        @role('financier')
+                            <li><a href="{{ route('web.financier.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
+                        @endrole
 
-                    @role('admin')
+                        @role('admin')
+                            <li><a href="{{ route('web.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
+                        @endrole
+                    @else
                         <li><a href="{{ route('web.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
-                    @endrole
-                @else
-                    <li><a href="{{ route('web.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
-                @endif
+                    @endif
+
+                    <li><a href="{{ route('web.home.about') }}">{{ trans('layout.frontend.navbar.about') }}</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav pull-right">

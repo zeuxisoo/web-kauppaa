@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@signup']);
     Route::post('signup', ['as' => 'web.home.signup', 'uses' => 'HomeController@doSignup']);
     Route::get('signout', ['as' => 'web.home.signout', 'uses' => 'HomeController@signout']);
+    Route::get('about', ['as' => 'web.home.about', 'uses' => 'HomeController@about']);
 
     Route::group(['prefix' => 'news'], function() {
         Route::get('show/{id}', ['as' => 'web.news.show', 'uses' => 'NewsController@show']);

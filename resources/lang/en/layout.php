@@ -8,6 +8,7 @@ return [
             'signout' => 'Sign out',
             'signin'  => 'Sign in',
             'signup'  => 'Sign up',
+            'about'   => 'About Us',
         ],
         'alert' => [
             'error_title'   => 'Error!',

@@ -8,17 +8,20 @@ use App\Http\Requests\SignUpRequest;
 use App\Repositories\UserRepository;
 use App\Repositories\NewsRepository;
 use App\Repositories\RoleRepository;
+use App\Repositories\SiteRepository;
 
 class HomeController extends Controller {
 
     protected $userRepository;
     protected $roleRepository;
     protected $newsRepository;
+    protected $siteRepository;
 
-    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository, NewsRepository $newsRepository) {
+    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository, NewsRepository $newsRepository, SiteRepository $siteRepository) {
         $this->userRepository = $userRepository;
         $this->roleRepository = $roleRepository;
         $this->newsRepository = $newsRepository;
+        $this->siteRepository = $siteRepository;
     }
 
     public function index() {
@@ -65,6 +68,13 @@ class HomeController extends Controller {
         Auth::logout();
 
         return redirect(route('web.home.index'));
+    }
+
+    public function about() {
+        $about_us   = $this->siteRepository->findById(1);
+        $contact_us = $this->siteRepository->findById(2);
+
+        return view('home/about', compact('about_us', 'contact_us'));
     }
 
 }
