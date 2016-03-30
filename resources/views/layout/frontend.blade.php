@@ -36,6 +36,10 @@
                     @role('financier')
                         <li><a href="{{ route('web.financier.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
                     @endrole
+
+                    @role('admin')
+                        <li><a href="{{ route('web.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
+                    @endrole
                 @else
                     <li><a href="{{ route('web.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
                 @endif
