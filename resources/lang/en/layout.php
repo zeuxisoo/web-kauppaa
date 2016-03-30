@@ -3,12 +3,13 @@ return [
     'frontend' => [
         'toggle_navigation' => 'Toggle navigation',
         'navbar' => [
-            'home'    => 'Home',
-            'apply'   => 'Apply',
-            'signout' => 'Sign out',
-            'signin'  => 'Sign in',
-            'signup'  => 'Sign up',
-            'about'   => 'About Us',
+            'home'        => 'Home',
+            'apply'       => 'Apply',
+            'signout'     => 'Sign out',
+            'signin'      => 'Sign in',
+            'signup'      => 'Sign up',
+            'about'       => 'About Us',
+            'application' => 'Application'
         ],
         'alert' => [
             'error_title'   => 'Error!',
@@ -35,6 +36,18 @@ return [
             'my_profile'    => 'My Profile',
             'edit_profile'  => 'Edit Profile',
             'edit_password' => 'Edit Password',
+        ]
+    ],
+
+    'frontend_financier_application' => [
+        'title' => 'Applies List',
+        'menu'  => [
+            'title' => 'Menu',
+            'page'  => [
+                'all_published' => 'All Published',
+                'my_matched'    => 'My Matched',
+                'my_approved'   => 'My Approved'
+            ],
         ]
     ],
 

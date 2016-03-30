@@ -35,6 +35,7 @@
 
                         @role('financier')
                             <li><a href="{{ route('web.financier.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
+                            <li><a href="{{ route('web.financier.application.index') }}">{{ trans('layout.frontend.navbar.application') }}</a></li>
                         @endrole
 
                         @role('admin')

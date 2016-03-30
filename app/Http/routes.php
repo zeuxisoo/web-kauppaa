@@ -60,6 +60,12 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(['namespace' => 'Financier', 'prefix' => 'financier', 'middleware' => 'role.financier:financier'], function() {
         Route::get('home', ['as' => 'web.financier.home.index', 'uses' => 'HomeController@index']);
+
+        Route::group(['prefix' => 'application'], function() {
+            Route::get('index', ['as' => 'web.financier.application.index', 'uses' => 'ApplicationController@index']);
+            Route::get('matched', ['as' => 'web.financier.application.matched', 'uses' => 'ApplicationController@matched']);
+            Route::get('approved', ['as' => 'web.financier.application.approved', 'uses' => 'ApplicationController@approved']);
+        });
     });
 
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
