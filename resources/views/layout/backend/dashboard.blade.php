@@ -45,6 +45,14 @@
                             <a href="{{ route('web.admin.dashboard.index') }}"><i class="fa fa-dashboard fa-fw"></i> {{ trans('layout.backend.navbar.home') }}</a>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-tasks fa-fw"></i> Site<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ route('web.admin.site.edit_about_us') }}">Edit About Us</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-tasks fa-fw"></i> News<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

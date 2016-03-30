@@ -14,6 +14,13 @@
         <div class="panel-heading">Shortcut</div>
         <div class="panel-body">
             <div class="row">
+                <div class="col-md-3">Site</div>
+                <div class="col-md-9">
+                    <a href="{{ route('web.admin.site.edit_about_us') }}" class="btn btn-xs btn-default">Edit About Us</a>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
                 <div class="col-md-3">News</div>
                 <div class="col-md-9">
                     <a href="{{ route('web.admin.news.create') }}" class="btn btn-xs btn-default">Create news</a>

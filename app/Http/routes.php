@@ -80,6 +80,11 @@ Route::group(['middleware' => ['web']], function () {
                 Route::post('/destroy', ['as' => 'web.admin.news.destroy', 'uses' => 'NewsController@destroy']);
             });
 
+            Route::group(['prefix' => 'site'], function() {
+                Route::get('/about-us/edit', ['as' => 'web.admin.site.edit_about_us', 'uses' => 'SiteController@editAboutUs']);
+                Route::post('/about-us/update', ['as' => 'web.admin.site.update_about_us', 'uses' => 'SiteController@updateAboutUs']);
+            });
+
             Route::group(['prefix' => 'apply'], function() {
                 Route::get('index', ['as' => 'web.admin.apply.index', 'uses' => 'ApplyController@index']);
                 Route::get('show/{id}', ['as' => 'web.admin.apply.show', 'uses' => 'ApplyController@show']);

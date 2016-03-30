@@ -50,5 +50,22 @@ return [
                 'news_deleted' => 'News deleted',
             ]
         ]
+    ],
+
+    'site' => [
+        'edit' => [
+            'about_us' => [
+                'title'         => 'Edit About Us',
+                'panel_heading' => 'About Us',
+                'label'         => [
+                    'description' => 'Description',
+                ],
+                'save_button'   => 'Save',
+
+                'success' => [
+                    'about_us_updated' => 'About us updated'
+                ]
+            ]
+        ]
     ]
 ];
