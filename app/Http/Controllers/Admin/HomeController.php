@@ -8,7 +8,13 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller {
 
     public function index() {
-        return view('admin/index');
+        $user = Auth::user();
+
+        if ($user !== null && $user->hasRole('admin') === true) {
+            return redirect(route('web.admin.dashboard.index'));
+        }else{
+            return view('admin/index');
+        }
     }
 
     public function signin(Request $request) {
