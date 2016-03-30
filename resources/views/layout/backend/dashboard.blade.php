@@ -38,36 +38,36 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search text-center">
                             <div class="text-muted">
-                                Welcome, <a href="javascript:void(0)">{{{ ucfirst(Auth::user()->username) }}}</a>
+                                {{ trans('layout.backend_dashboard.menu.welcome', ['username' => ucfirst(Auth::user()->username)]) }}
                             </div>
                         </li>
                         <li>
                             <a href="{{ route('web.admin.dashboard.index') }}"><i class="fa fa-dashboard fa-fw"></i> {{ trans('layout.backend.navbar.home') }}</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-tasks fa-fw"></i> Site<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-tasks fa-fw"></i> {{ trans('layout.backend_dashboard.menu.site.group_name') }}<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ route('web.admin.site.edit_about_us') }}">Edit About Us</a>
+                                    <a href="{{ route('web.admin.site.edit_about_us') }}">{{ trans('layout.backend_dashboard.menu.site.edit_about_us') }}</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-tasks fa-fw"></i> News<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-tasks fa-fw"></i> {{ trans('layout.backend_dashboard.menu.news.group_name') }}<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ route('web.admin.news.create') }}">Create news</a>
+                                    <a href="{{ route('web.admin.news.create') }}">{{ trans('layout.backend_dashboard.menu.news.create_news') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('web.admin.news.manage') }}">Manage news</a>
+                                    <a href="{{ route('web.admin.news.manage') }}">{{ trans('layout.backend_dashboard.menu.news.manage_news') }}</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-tasks fa-fw"></i> Applies<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-tasks fa-fw"></i> {{ trans('layout.backend_dashboard.menu.apply.group_name') }}<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ route('web.admin.apply.index') }}">Show applies</a>
+                                    <a href="{{ route('web.admin.apply.index') }}">{{ trans('layout.backend_dashboard.menu.apply.show_apply') }}</a>
                                 </li>
                             </ul>
                         </li>

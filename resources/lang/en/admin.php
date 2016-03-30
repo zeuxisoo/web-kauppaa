@@ -1,5 +1,13 @@
 <?php
 return [
+    'home' => [
+        'title'    => 'Dashboard',
+        'welcome'  => 'Welcome!',
+        'shortcut' => [
+            'panel_heading' => 'Shortcut'
+        ]
+    ],
+
     'news' => [
         'create' => [
             'title'         => 'Create News',
