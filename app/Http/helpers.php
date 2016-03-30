@@ -1,19 +1,19 @@
 <?php
 function status($name) {
     $status = [
-        'waiting'   => 'Waiting',
-        'reviewing' => 'Reviewing',
-        'published' => 'Published',
-        'matched'   => 'Matched',
-        'approved'  => 'Approved',
-        'completed' => 'Completed'
+        'waiting'   => trans('helpers.status.waiting'),
+        'reviewing' => trans('helpers.status.reviewing'),
+        'published' => trans('helpers.status.published'),
+        'matched'   => trans('helpers.status.matched'),
+        'approved'  => trans('helpers.status.approved'),
+        'completed' => trans('helpers.status.complete')
     ];
 
     return $status[$name];
 }
 
 function gender($code) {
-    return $code === 1 ? "Male" : "Female";
+    return $code === 1 ? trans('helpers.gender.male') : trans('helpers.gender.female');
 }
 
 function occupation($code) {
@@ -25,14 +25,14 @@ function occupation($code) {
     ];
 
     if (array_key_exists($code, $names) !== true) {
-        throw new Exception('Can not map the occupation code to text');
+        throw new Exception(trans('helpers.error.mapping_occupation'));
     }else{
         return $names[$code];
     }
 }
 
 function yesOrNo($status) {
-    return $status == true ? "Yes" : "No";
+    return $status == true ? trans('helpers.yes_or_no.yes') : trans('helpers.yes_or_no.no');
 }
 
 function loanType($code) {
@@ -44,7 +44,7 @@ function loanType($code) {
     ];
 
     if (array_key_exists($code, $names) !== true) {
-        throw new Exception('Can not map the loan type code to text');
+        throw new Exception(trans('helpers.error.mapping_loan_type'));
     }else{
         return $names[$code];
     }
@@ -52,13 +52,13 @@ function loanType($code) {
 
 function payroll($code) {
     $names = [
-        1 => 'Auto pay',
-        2 => 'Check',
-        3 => 'Cash',
+        1 => trans('helpers.payroll.auto_pay'),
+        2 => trans('helpers.payroll.check'),
+        3 => trans('helpers.payroll.cash')
     ];
 
     if (array_key_exists($code, $names) !== true) {
-        throw new Exception('Can not map the payroll code to text');
+        throw new Exception(trans('helper.error.mapping_payroll'));
     }else{
         return $names[$code];
     }
