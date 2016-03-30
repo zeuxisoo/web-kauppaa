@@ -11,7 +11,7 @@
             <div class="panel-body">
                 <form action="{{ route('web.admin.site.update_about_us') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="id" value="1">
+                    <input type="hidden" name="id" value="{{ $about_us->id }}">
                     <div class="form-group">
                         <label for="description" class="col-sm-2 control-label">{{ trans('admin.site.edit.about_us.label.description') }}</label>
                         <div class="col-sm-10">

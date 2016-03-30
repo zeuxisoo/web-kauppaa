@@ -50,6 +50,9 @@
                                 <li>
                                     <a href="{{ route('web.admin.site.edit_about_us') }}">{{ trans('layout.backend_dashboard.menu.site.edit_about_us') }}</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('web.admin.site.edit_contact_us') }}">{{ trans('layout.backend_dashboard.menu.site.edit_contact_us') }}</a>
+                                </li>
                             </ul>
                         </li>
                         <li>

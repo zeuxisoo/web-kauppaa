@@ -17,6 +17,7 @@
                 <div class="col-md-3">{{ trans('layout.backend_dashboard.menu.site.group_name') }}</div>
                 <div class="col-md-9">
                     <a href="{{ route('web.admin.site.edit_about_us') }}" class="btn btn-xs btn-default">{{ trans('layout.backend_dashboard.menu.site.edit_about_us') }}</a>
+                    <a href="{{ route('web.admin.site.edit_contact_us') }}" class="btn btn-xs btn-default">{{ trans('layout.backend_dashboard.menu.site.edit_contact_us') }}</a>
                 </div>
             </div>
             <hr>

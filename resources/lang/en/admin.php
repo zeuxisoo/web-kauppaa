@@ -73,6 +73,19 @@ return [
                 'success' => [
                     'about_us_updated' => 'About us updated'
                 ]
+            ],
+
+            'contact_us' => [
+                'title'         => 'Edit Contact Us',
+                'panel_heading' => 'Contact Us',
+                'label'         => [
+                    'description' => 'Description',
+                ],
+                'save_button'   => 'Save',
+
+                'success' => [
+                    'about_us_updated' => 'Contact us updated'
+                ]
             ]
         ]
     ]

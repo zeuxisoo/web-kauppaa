@@ -41,8 +41,9 @@ return [
         'menu' => [
             'welcome' => 'Welcome, :username',
             'site'    => [
-                'group_name'    => 'Site',
-                'edit_about_us' => 'Edit About Us',
+                'group_name'      => 'Site',
+                'edit_about_us'   => 'Edit About Us',
+                'edit_contact_us' => 'Edit Contact Us',
             ],
             'news'    => [
                 'group_name'  => 'News',

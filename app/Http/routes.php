@@ -81,8 +81,10 @@ Route::group(['middleware' => ['web']], function () {
             });
 
             Route::group(['prefix' => 'site'], function() {
-                Route::get('/about-us/edit', ['as' => 'web.admin.site.edit_about_us', 'uses' => 'SiteController@editAboutUs']);
-                Route::post('/about-us/update', ['as' => 'web.admin.site.update_about_us', 'uses' => 'SiteController@updateAboutUs']);
+                Route::get('/edit/about-us', ['as' => 'web.admin.site.edit_about_us', 'uses' => 'SiteController@editAboutUs']);
+                Route::post('/edit/about-us', ['as' => 'web.admin.site.update_about_us', 'uses' => 'SiteController@updateAboutUs']);
+                Route::get('/edit/contact-us', ['as' => 'web.admin.site.edit_contact_us', 'uses' => 'SiteController@editContactUs']);
+                Route::post('/edit/contact-us', ['as' => 'web.admin.site.update_contact_us', 'uses' => 'SiteController@updateContactUs']);
             });
 
             Route::group(['prefix' => 'apply'], function() {
