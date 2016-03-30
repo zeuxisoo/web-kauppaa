@@ -4,7 +4,10 @@ return [
         'title'    => 'Dashboard',
         'welcome'  => 'Welcome!',
         'shortcut' => [
-            'panel_heading' => 'Shortcut'
+            'panel_heading' => 'Shortcut',
+            'applies' => [
+                'manage' => ':status'
+            ]
         ]
     ],
 
@@ -87,6 +90,63 @@ return [
                     'about_us_updated' => 'Contact us updated'
                 ]
             ]
+        ]
+    ],
+
+    'apply' => [
+        'manage' => [
+            'title'         => 'Manage applies (:status)',
+            'panel_heading' => 'Applies',
+            'alert_empty'   => 'No any related applications',
+            'label'         => [
+                'chinese_name' => 'Chinese name',
+                'english_name' => 'English name',
+                'apply_amount' => 'Apply amount',
+                'created_at'   => 'Created at',
+                'status'       => 'Status',
+                'action'       => 'Action',
+            ],
+            'row'           => [
+                'view' => 'View',
+                'edit' => 'Edit',
+            ]
+        ],
+
+        'show' => [
+            'title' => 'Show apply',
+            'section' => [
+                'personal'           => 'Personal',
+                'property_ownership' => 'Property Ownership',
+                'loan'               => 'Loan',
+                'others'             => 'Others',
+                'upload'             => 'Upload',
+            ],
+            'label' => [
+                'status'             => 'Status',
+                'chinese_name'       => 'Chinese name',
+                'english_name'       => 'English name',
+                'hkid'               => 'HKID',
+                'gender'             => 'Gender',
+                'occupation'         => 'Occupation',
+                'monthly_income'     => 'Monthly Income',
+                'property_ownership' => 'Property Ownership',
+                'loan_type'          => 'Loan Type',
+                'apply_amount'       => 'Apply Amount',
+                'loan_period'        => 'Loan Period',
+                'payroll'            => 'Payroll',
+                'mpf'                => 'MPF',
+                'once_bankruptcy'    => 'Once bankruptcy',
+
+                'private_residential'   => 'Private residential',
+                'home_ownership'        => 'Home ownership',
+                'public_home_ownership' => 'Public home ownership',
+                'village_houses'        => 'Village houses',
+                'no_property'           => 'No property',
+            ],
+        ],
+
+        'edit' => [
+            'title' => 'Edit apply'
         ]
     ]
 ];

@@ -52,8 +52,8 @@ return [
                 'manage_news' => 'Manage news',
             ],
             'apply'   => [
-                'group_name' => 'Applies',
-                'show_apply' => 'Show applies',
+                'group_name'   => 'Applies',
+                'manage_apply' => 'Manage :status applies',
             ],
             'other'   => [
                 'group_name' => 'Others'

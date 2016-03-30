@@ -22,8 +22,8 @@ class ApplyRepository extends AppRepository {
         return $this->apply->whereUserId($user_id)->find($apply_id);
     }
 
-    public function findAllApplies() {
-        return $this->apply->orderBy('created_at', 'desc')->get();
+    public function findAllAppliesByStatusWithPaginate($status, $per_page = 12) {
+        return $this->apply->whereStatus($status)->orderBy('created_at', 'desc')->paginate($per_page);
     }
 
     public function findApplyById($apply_id) {

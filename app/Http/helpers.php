@@ -1,6 +1,15 @@
 <?php
-function status($code) {
-    return ucfirst($code);
+function status($name) {
+    $status = [
+        'waiting'   => 'Waiting',
+        'reviewing' => 'Reviewing',
+        'published' => 'Published',
+        'matched'   => 'Matched',
+        'approved'  => 'Approved',
+        'completed' => 'Completed'
+    ];
+
+    return $status[$name];
 }
 
 function gender($code) {

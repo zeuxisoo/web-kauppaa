@@ -89,7 +89,7 @@ Route::group(['middleware' => ['web']], function () {
             });
 
             Route::group(['prefix' => 'apply'], function() {
-                Route::get('index', ['as' => 'web.admin.apply.index', 'uses' => 'ApplyController@index']);
+                Route::get('manage/{status}', ['as' => 'web.admin.apply.manage', 'uses' => 'ApplyController@manage']);
                 Route::get('show/{id}', ['as' => 'web.admin.apply.show', 'uses' => 'ApplyController@show']);
                 Route::get('edit/{id}', ['as' => 'web.admin.apply.edit', 'uses' => 'ApplyController@edit']);
                 Route::post('update/{id}', ['as' => 'web.admin.apply.update', 'uses' => 'ApplyController@update']);

@@ -70,7 +70,34 @@
                             <a href="#"><i class="fa fa-tasks fa-fw"></i> {{ trans('layout.backend_dashboard.menu.apply.group_name') }}<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ route('web.admin.apply.index') }}">{{ trans('layout.backend_dashboard.menu.apply.show_apply') }}</a>
+                                    <a href="{{ route('web.admin.apply.manage', ['status' => 'waiting']) }}">
+                                        {{ trans('layout.backend_dashboard.menu.apply.manage_apply', ['status' => 'waiting']) }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('web.admin.apply.manage', ['status' => 'reviewing']) }}">
+                                        {{ trans('layout.backend_dashboard.menu.apply.manage_apply', ['status' => 'reviewing']) }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('web.admin.apply.manage', ['status' => 'published']) }}">
+                                        {{ trans('layout.backend_dashboard.menu.apply.manage_apply', ['status' => 'published']) }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('web.admin.apply.manage', ['status' => 'matched']) }}">
+                                        {{ trans('layout.backend_dashboard.menu.apply.manage_apply', ['status' => 'matched']) }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('web.admin.apply.manage', ['status' => 'approved']) }}">
+                                        {{ trans('layout.backend_dashboard.menu.apply.manage_apply', ['status' => 'approved']) }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('web.admin.apply.manage', ['status' => 'completed']) }}">
+                                        {{ trans('layout.backend_dashboard.menu.apply.manage_apply', ['status' => 'completed']) }}
+                                    </a>
                                 </li>
                             </ul>
                         </li>

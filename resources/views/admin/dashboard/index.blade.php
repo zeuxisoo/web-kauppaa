@@ -32,7 +32,24 @@
             <div class="row">
                 <div class="col-md-3">{{ trans('layout.backend_dashboard.menu.apply.group_name') }}</div>
                 <div class="col-md-9">
-                    <a href="{{ route('web.admin.apply.index') }}" class="btn btn-xs btn-default">{{ trans('layout.backend_dashboard.menu.apply.show_apply') }}</a>
+                    <a href="{{ route('web.admin.apply.manage', ['status' => 'waiting']) }}" class="btn btn-xs btn-default">
+                        {{ trans('admin.home.shortcut.applies.manage', ['status' => ucfirst('waiting')]) }}
+                    </a>
+                    <a href="{{ route('web.admin.apply.manage', ['status' => 'reviewing']) }}" class="btn btn-xs btn-default">
+                        {{ trans('admin.home.shortcut.applies.manage', ['status' => ucfirst('reviewing')]) }}
+                    </a>
+                    <a href="{{ route('web.admin.apply.manage', ['status' => 'published']) }}" class="btn btn-xs btn-default">
+                        {{ trans('admin.home.shortcut.applies.manage', ['status' => ucfirst('published')]) }}
+                    </a>
+                    <a href="{{ route('web.admin.apply.manage', ['status' => 'matched']) }}" class="btn btn-xs btn-default">
+                        {{ trans('admin.home.shortcut.applies.manage', ['status' => ucfirst('matched')]) }}
+                    </a>
+                    <a href="{{ route('web.admin.apply.manage', ['status' => 'approved']) }}" class="btn btn-xs btn-default">
+                        {{ trans('admin.home.shortcut.applies.manage', ['status' => ucfirst('approved')]) }}
+                    </a>
+                    <a href="{{ route('web.admin.apply.manage', ['status' => 'completed']) }}" class="btn btn-xs btn-default">
+                        {{ trans('admin.home.shortcut.applies.manage', ['status' => ucfirst('completed')]) }}
+                    </a>
                 </div>
             </div>
             <hr>

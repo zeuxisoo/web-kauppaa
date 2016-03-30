@@ -10,14 +10,16 @@ class ApplyController extends Controller {
 
     private $applyRepository;
 
+    private $status = ['waiting', 'reviewing', 'published', 'matched', 'approved', 'completed'];
+
     public function __construct(ApplyRepository $applyRepository) {
         $this->applyRepository = $applyRepository;
     }
 
-    public function index() {
-        $applies = $this->applyRepository->findAllApplies();
+    public function manage($status) {
+        $applies = $this->applyRepository->findAllAppliesByStatusWithPaginate($status);
 
-        return view('admin/apply/index', compact('applies'));
+        return view('admin/apply/manage', compact('status', 'applies'));
     }
 
     public function show($id) {
@@ -29,8 +31,10 @@ class ApplyController extends Controller {
 
     public function edit($id) {
         $apply  = $this->applyRepository->findApplyById($id);
+        $photos = $apply->photos;
+        $status = $this->status;
 
-        return view('admin/apply/edit', compact('apply'));
+        return view('admin/apply/edit', compact('apply', 'photos', 'status'));
     }
 
     public function update(Request $request, $id) {
