@@ -66,6 +66,8 @@ function homePage() {
             $route = 'web.user.home.index';
         }else if ($user->hasRole('financier') === true) {
             $route = 'web.financier.home.index';
+        }else if ($user->hasRole('admin') === true) {
+            $route = 'web.admin.dashboard.index';
         }else{
             $route = 'web.home.index';
         }
