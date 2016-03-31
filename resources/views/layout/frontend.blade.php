@@ -40,6 +40,7 @@
 
                         @role('admin')
                             <li><a href="{{ route('web.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>
+                            <li><a href="{{ route('web.admin.dashboard.index') }}">{{ trans('layout.frontend.navbar.dashboard') }}</a></li>
                         @endrole
                     @else
                         <li><a href="{{ route('web.home.index') }}">{{ trans('layout.frontend.navbar.home') }}</a></li>

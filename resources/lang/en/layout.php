@@ -9,7 +9,8 @@ return [
             'signin'      => 'Sign in',
             'signup'      => 'Sign up',
             'about'       => 'About Us',
-            'application' => 'Application'
+            'application' => 'Application',
+            'dashboard'   => 'Dashboard',
         ],
         'alert' => [
             'error_title'   => 'Error!',
