@@ -163,6 +163,7 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -216,6 +217,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

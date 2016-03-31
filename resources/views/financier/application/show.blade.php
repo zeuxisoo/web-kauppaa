@@ -8,9 +8,12 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <a href="javascript:history.back()" class="btn btn-xs btn-default">{{ trans('financier.application.show.back_button') }}</a>
-                        <a href="{{ route('web.financier.application.investment', ['id' => $apply->id]) }}" class="btn btn-xs btn-info">
-                            {{ trans('financier.application.show.investment_button') }}
-                        </a>
+
+                        @if ($investment === null)
+                            <a href="{{ route('web.financier.application.investment', ['id' => $apply->id]) }}" class="btn btn-xs btn-info">
+                                {{ trans('financier.application.show.investment_button') }}
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -24,7 +24,10 @@ class ApplicationController extends Controller {
     }
 
     public function matched() {
-        return view('financier/application/matched');
+        $user_id     = $this->user->id;
+        $investments = $this->financierApplicationRepository->findMyMatchedApplicationsWithPaginate($user_id);
+
+        return view('financier/application/matched', compact('investments'));
     }
 
     public function approved() {
@@ -32,9 +35,11 @@ class ApplicationController extends Controller {
     }
 
     public function show($id) {
-        $apply = $this->applyRepository->findApplyById($id);
+        $user_id    = $this->user->id;
+        $apply      = $this->applyRepository->findApplyById($id);
+        $investment = $this->financierApplicationRepository->findByUserIdAndApplyId($user_id, $id);
 
-        return view('financier/application/show', compact('apply'));
+        return view('financier/application/show', compact('apply', 'investment'));
     }
 
     public function investment($id) {
