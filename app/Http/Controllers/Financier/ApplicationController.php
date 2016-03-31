@@ -31,7 +31,10 @@ class ApplicationController extends Controller {
     }
 
     public function approved() {
-        return view('financier/application/approved');
+        $user_id     = $this->user->id;
+        $investments = $this->financierApplicationRepository->findMyApprovedApplicationsWithPaginate($user_id);
+
+        return view('financier/application/approved', compact('investments'));
     }
 
     public function show($id) {
@@ -56,6 +59,7 @@ class ApplicationController extends Controller {
             $this->financierApplicationRepository->create([
                 'user_id'  => $this->user->id,
                 'apply_id' => $apply->id,
+                'status'   => 'matched',
             ]);
 
             $this->applyRepository->updateApplyById($id, [

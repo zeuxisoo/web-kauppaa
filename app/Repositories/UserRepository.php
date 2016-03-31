@@ -14,6 +14,10 @@ class UserRepository extends AppRepository {
         return (new User)->create($input)->attachRole($role);
     }
 
+    public function findById($user_id) {
+        return $this->user->find($user_id);
+    }
+
     public function updateMyProfile($user_id, $input) {
         return $this->user->whereId($user_id)->update($input);
     }

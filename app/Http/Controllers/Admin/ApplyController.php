@@ -1,19 +1,25 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
-use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminApplyUpdateRequest;
+use App\Repositories\UserRepository;
 use App\Repositories\ApplyRepository;
+use App\Repositories\FinancierApplicationRepository;
 
 class ApplyController extends Controller {
 
+    private $userRepository;
     private $applyRepository;
+    private $financierApplicationRepository;
 
-    private $status = ['waiting', 'reviewing', 'published', 'matched', 'approved', 'completed'];
+    private $status = ['waiting', 'reviewing', 'published', 'matched', 'rejected', 'approved', 'completed'];
 
-    public function __construct(ApplyRepository $applyRepository) {
-        $this->applyRepository = $applyRepository;
+    public function __construct(UserRepository $userRepository, ApplyRepository $applyRepository, FinancierApplicationRepository $financierApplicationRepository) {
+        $this->userRepository                 = $userRepository;
+        $this->applyRepository                = $applyRepository;
+        $this->financierApplicationRepository = $financierApplicationRepository;
     }
 
     public function manage($status) {
@@ -26,7 +32,10 @@ class ApplyController extends Controller {
         $apply  = $this->applyRepository->findApplyById($id);
         $photos = $apply->photos;
 
-        return view('admin/apply/show', compact('apply', 'photos'));
+        $investment = $this->financierApplicationRepository->findByApplyId($id);
+        $financier  = $this->userRepository->findById($investment->user_id);
+
+        return view('admin/apply/show', compact('apply', 'photos', 'financier'));
     }
 
     public function edit($id) {
@@ -34,12 +43,22 @@ class ApplyController extends Controller {
         $photos = $apply->photos;
         $status = $this->status;
 
-        return view('admin/apply/edit', compact('apply', 'photos', 'status'));
+        $investment = $this->financierApplicationRepository->findByApplyId($id);
+        $financier  = $this->userRepository->findById($investment->user_id);
+
+        return view('admin/apply/edit', compact('apply', 'photos', 'status', 'financier'));
     }
 
-    public function update(Request $request, $id) {
-        $input = $request->only('status');
-        $apply = $this->applyRepository->updateApplyById($id, $input);
+    public function update(AdminApplyUpdateRequest $request, $id) {
+        $input        = $request->only('status');
+        $financier_id = $request->input('financier_id');
+        $apply        = $this->applyRepository->findApplyById($id);
+
+        $this->applyRepository->updateApplyById($id, $input);
+
+        if (in_array($input['status'], ['published', 'matched', 'rejected', 'approved', 'completed']) === true) {
+            $this->financierApplicationRepository->updateByFinancierIdAndApplyId($financier_id, $apply->id, $input);
+        }
 
         return redirect()->back()->withNotice('Record was updated');
     }

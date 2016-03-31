@@ -9,6 +9,7 @@ class CreateFinancierApplicationTable extends Migration {
             $table->increments('id');
             $table->mediumInteger('user_id')->unsigned()->index();
             $table->mediumInteger('apply_id')->unsigned()->index();
+            $table->enum('status', ['matched', 'rejected', 'approved', 'completed'])->default('matched');
             $table->timestamps();
         });
     }

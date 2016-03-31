@@ -27,7 +27,7 @@ class CreateApplyTable extends Migration {
             $table->tinyInteger('mpf')->unsigned()->default(1);
             $table->tinyInteger('once_bankruptcy')->unsigned()->default(2);
             $table->enum('status', [
-                'waiting', 'reviewing', 'published', 'matched', 'approved', 'completed'
+                'waiting', 'reviewing', 'published', 'matched', 'rejected', 'approved', 'completed'
             ])->default('waiting');
             $table->softDeletes();
             $table->timestamps();

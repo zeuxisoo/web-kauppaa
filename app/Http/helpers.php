@@ -5,6 +5,7 @@ function status($name) {
         'reviewing' => trans('helpers.status.reviewing'),
         'published' => trans('helpers.status.published'),
         'matched'   => trans('helpers.status.matched'),
+        'rejected'  => trans('helpers.status.rejected'),
         'approved'  => trans('helpers.status.approved'),
         'completed' => trans('helpers.status.completed')
     ];

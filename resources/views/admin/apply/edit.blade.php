@@ -19,6 +19,7 @@
             <div class="panel-body">
                 <form class="form-horizontal" method="post" action="{{ route('web.admin.apply.update', ['id' => $apply->id]) }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="financier_id" value="{{ $financier->id }}">
                     <div class="form-group">
                         <label for="status" class="col-xs-3 col-md-2 control-label">Status</label>
                         <div class="col-xs-9 col-md-10">
@@ -41,6 +42,24 @@
                 </form>
             </div>
         </div>
+
+        @if ($financier !== null)
+            <hr />
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Financier</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-3"><strong>{{ trans('admin.apply.show.label.username') }}</strong></div>
+                        <div class="col-xs-4 col-sm-3 text-right">{{ $financier->username }}</div>
+                        <div class="col-xs-8 col-sm-3"><strong>{{ trans('admin.apply.show.label.email') }}</strong></div>
+                        <div class="col-xs-4 col-sm-3 text-right">{{ $financier->email }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+        @endif
 
         <div class="panel panel-default">
             <div class="panel-body">

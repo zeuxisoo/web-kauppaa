@@ -123,6 +123,8 @@ return [
             ],
             'label' => [
                 'status'             => 'Status',
+                'username'           => 'Username',
+                'email'              => 'Email',
                 'chinese_name'       => 'Chinese name',
                 'english_name'       => 'English name',
                 'hkid'               => 'HKID',

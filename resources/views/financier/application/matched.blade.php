@@ -20,17 +20,17 @@
                                 <th>{{ trans('financier.application.matched.table.menu.action') }}</th>
                             </tr>
                         </thead>
-                        @foreach($investments as $apply)
+                        @foreach($investments as $investment)
                             <tbody>
                                 <tr>
-                                    <td>{{ $apply->id }}</td>
-                                    <td>{{ $apply->chinese_name }}</td>
-                                    <td>{{ $apply->english_name }}</td>
-                                    <td>{{ gender($apply->gender) }}</td>
-                                    <td>{{ $apply->apply_amount }}</td>
-                                    <td>{{ $apply->created_at->diffForHumans() }}</td>
+                                    <td>{{ $investment->apply->id }}</td>
+                                    <td>{{ $investment->apply->chinese_name }}</td>
+                                    <td>{{ $investment->apply->english_name }}</td>
+                                    <td>{{ gender($investment->apply->gender) }}</td>
+                                    <td>{{ $investment->apply->apply_amount }}</td>
+                                    <td>{{ $investment->apply->created_at->diffForHumans() }}</td>
                                     <td>
-                                        <a href="{{ route('web.financier.application.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">
+                                        <a href="{{ route('web.financier.application.show', ['id' => $investment->apply->id]) }}" class="btn btn-xs btn-default">
                                             {{ trans('financier.application.matched.table.row.view_button') }}
                                         </a>
                                     </td>

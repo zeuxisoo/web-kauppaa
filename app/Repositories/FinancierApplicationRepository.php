@@ -14,17 +14,24 @@ class FinancierApplicationRepository extends AppRepository {
         return (new $this->financier_application)->create($input);
     }
 
+    public function findByApplyId($apply_id) {
+        return $this->financier_application->whereApplyId($apply_id)->first();
+    }
+
     public function findByUserIdAndApplyId($user_id, $apply_id) {
         return $this->financier_application->whereUserId($user_id)->whereApplyId($apply_id)->first();
     }
 
     public function findMyMatchedApplicationsWithPaginate($user_id, $per_page = 10) {
-        return $this->financier_application
-                    ->query()
-                    ->select('financier_applications.*', 'applies.*')
-                    ->leftJoin('applies', 'applies.id', '=', 'financier_applications.apply_id')
-                    ->where('financier_applications.user_id', '=', $user_id)
-                    ->paginate($per_page);
+        return $this->financier_application->with('apply')->whereUserId($user_id)->whereStatus('matched')->paginate($per_page);
+    }
+
+    public function findMyApprovedApplicationsWithPaginate($user_id, $per_page = 10) {
+        return $this->financier_application->with('apply')->whereUserId($user_id)->whereStatus('approved')->paginate($per_page);
+    }
+
+    public function updateByFinancierIdAndApplyId($user_id, $apply_id, $input) {
+        return $this->financier_application->whereUserId($user_id)->whereApplyId($apply_id)->update($input);
     }
 
 }

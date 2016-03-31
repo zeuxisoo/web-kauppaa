@@ -5,6 +5,7 @@ return [
         'reviewing' => 'Reviewing',
         'published' => 'Published',
         'matched'   => 'Matched',
+        'rejected'  => 'Rejected',
         'approved'  => 'Approved',
         'completed' => 'Completed'
     ],

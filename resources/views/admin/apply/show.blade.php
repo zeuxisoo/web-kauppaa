@@ -24,6 +24,24 @@
             </div>
         </div>
 
+        @if ($financier !== null)
+            <hr />
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Financier</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-3"><strong>{{ trans('admin.apply.show.label.username') }}</strong></div>
+                        <div class="col-xs-4 col-sm-3 text-right">{{ $financier->username }}</div>
+                        <div class="col-xs-8 col-sm-3"><strong>{{ trans('admin.apply.show.label.email') }}</strong></div>
+                        <div class="col-xs-4 col-sm-3 text-right">{{ $financier->email }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+        @endif
+
         <div class="panel panel-default">
             <div class="panel-heading">{{ trans('admin.apply.show.section.personal') }}</div>
             <div class="panel-body">

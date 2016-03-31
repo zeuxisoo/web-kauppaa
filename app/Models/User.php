@@ -5,6 +5,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use App\Models\Apply;
+use App\Models\FinancierApplication;
 
 class User extends Authenticatable {
 
