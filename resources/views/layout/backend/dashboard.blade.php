@@ -99,6 +99,11 @@
                                         {{ trans('layout.backend_dashboard.menu.apply.manage_apply', ['status' => 'completed']) }}
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('web.admin.apply.manage', ['status' => 'rejected']) }}">
+                                        {{ trans('layout.backend_dashboard.menu.apply.manage_apply', ['status' => 'rejected']) }}
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

@@ -50,6 +50,9 @@
                     <a href="{{ route('web.admin.apply.manage', ['status' => 'completed']) }}" class="btn btn-xs btn-default">
                         {{ trans('admin.home.shortcut.applies.manage', ['status' => ucfirst('completed')]) }}
                     </a>
+                    <a href="{{ route('web.admin.apply.manage', ['status' => 'rejected']) }}" class="btn btn-xs btn-default">
+                        {{ trans('admin.home.shortcut.applies.manage', ['status' => ucfirst('rejected')]) }}
+                    </a>
                 </div>
             </div>
             <hr>

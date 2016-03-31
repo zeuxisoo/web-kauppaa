@@ -14,7 +14,7 @@ class ApplyController extends Controller {
     private $applyRepository;
     private $financierApplicationRepository;
 
-    private $status = ['waiting', 'reviewing', 'published', 'matched', 'rejected', 'approved', 'completed'];
+    private $status = ['waiting', 'reviewing', 'published', 'matched', 'approved', 'completed', 'rejected'];
 
     public function __construct(UserRepository $userRepository, ApplyRepository $applyRepository, FinancierApplicationRepository $financierApplicationRepository) {
         $this->userRepository                 = $userRepository;
