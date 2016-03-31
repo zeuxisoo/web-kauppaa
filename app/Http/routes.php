@@ -66,6 +66,7 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('matched', ['as' => 'web.financier.application.matched', 'uses' => 'ApplicationController@matched']);
             Route::get('approved', ['as' => 'web.financier.application.approved', 'uses' => 'ApplicationController@approved']);
             Route::get('show/{id}', ['as' => 'web.financier.application.show', 'uses' => 'ApplicationController@show']);
+            Route::get('investment/{id}', ['as' => 'web.financier.application.investment', 'uses' => 'ApplicationController@investment']);
         });
     });
 
