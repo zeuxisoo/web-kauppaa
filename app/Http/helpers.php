@@ -6,7 +6,7 @@ function status($name) {
         'published' => trans('helpers.status.published'),
         'matched'   => trans('helpers.status.matched'),
         'approved'  => trans('helpers.status.approved'),
-        'completed' => trans('helpers.status.complete')
+        'completed' => trans('helpers.status.completed')
     ];
 
     return $status[$name];
