@@ -26,4 +26,8 @@ class ApplicationController extends Controller {
         return view('financier/application/approved');
     }
 
+    public function show() {
+        return view('financier/application/show');
+    }
+
 }

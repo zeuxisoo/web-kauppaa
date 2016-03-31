@@ -1,8 +1,8 @@
-@extends('layout.frontend.financier.application')
+@extends('layout.frontend.financier.application', ['category' => 'index'])
 
 @section('container_financier_application')
     <div class="panel panel-default">
-        <div class="panel-heading">{{ trans('layout.frontend_financier_application.menu.title') }}</div>
+        <div class="panel-heading">{{ trans('financier.application.index.title') }}</div>
         <div class="panel-body">
             @if ($applies->isEmpty() === true)
                 <div class="alert alert-info" role="alert">{{ trans('financier.application.index.alert_empty') }}</div>
@@ -30,7 +30,9 @@
                                     <td>{{ $apply->apply_amount }}</td>
                                     <td>{{ $apply->created_at->diffForHumans() }}</td>
                                     <td>
-                                        <a href="" class="btn btn-xs btn-default">{{ trans('financier.application.index.table.row.view_button') }}</a>
+                                        <a href="{{ route('web.financier.application.show', ['id' => $apply->id]) }}" class="btn btn-xs btn-default">
+                                            {{ trans('financier.application.index.table.row.view_button') }}
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>

@@ -2,6 +2,7 @@
 return [
     'application' => [
         'index' => [
+            'title'       => 'All Published',
             'alert_empty' => 'No any related application',
             'table'       => [
                 'menu' => [

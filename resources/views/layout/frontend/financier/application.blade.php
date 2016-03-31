@@ -14,13 +14,13 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">{{ trans('layout.frontend_financier_application.menu.title') }}</div>
                         <div class="list-group">
-                            <a href="{{ route('web.financier.application.index') }}" class="list-group-item">
+                            <a href="{{ route('web.financier.application.index') }}" class="list-group-item {{ $category === 'index' ? "active" : "" }}">
                                 {{ trans('layout.frontend_financier_application.menu.page.all_published') }}
                             </a>
-                            <a href="{{ route('web.financier.application.matched') }}" class="list-group-item">
+                            <a href="{{ route('web.financier.application.matched') }}" class="list-group-item {{ $category === 'matched' ? "active" : "" }}">
                                 {{ trans('layout.frontend_financier_application.menu.page.my_matched') }}
                             </a>
-                            <a href="{{ route('web.financier.application.approved') }}" class="list-group-item">
+                            <a href="{{ route('web.financier.application.approved') }}" class="list-group-item {{ $category === 'approved' ? "active" : "" }}">
                                 {{ trans('layout.frontend_financier_application.menu.page.my_approved') }}
                             </a>
                         </div>
