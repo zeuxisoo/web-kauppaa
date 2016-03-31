@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    @yield('container_profile')
+                    @yield('container_account_profile')
                 </div>
             </div>
         </div>

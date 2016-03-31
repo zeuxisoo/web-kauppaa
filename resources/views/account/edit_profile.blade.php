@@ -1,6 +1,6 @@
-@extends('layout.frontend.profile')
+@extends('layout.frontend.account.profile')
 
-@section('container_profile')
+@section('container_account_profile')
     <div class="panel panel-default">
         <div class="panel-heading">{{ trans('account.edit_profile.title') }}</div>
         <div class="panel-body">
